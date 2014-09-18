@@ -5,7 +5,7 @@
 	.header {
 		@include clearfix;
 		background: #174c6b;
-		
+
 		.container {
 			@include grid-row;
 			padding-top: 50px;
