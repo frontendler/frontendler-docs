@@ -1,0 +1,44 @@
+{
+    "name": "Frontendler",
+    "version": "0.0.7",
+    "description": "The responsive development kit",
+    "author": {
+        "name": "Daniel Beff",
+        "email": "daniel.beff@gmail.com",
+        "homepage": "http://www.danielbeff.com.br"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/dbeff/frontendler.git"
+    },
+    "keywords" : "sass,responsive,frontend,developer,kit",
+    "license": "MIT",
+    "homepage": "http://frontendler.com.br/",
+    "main":"app/assets/styles/frontendler/_frontendler.scss",
+    "ignore": [
+        "app/assets/icons/",
+        "app/assets/images/",
+        "app/assets/scripts/",
+        "app/assets/styles/app/",
+        "app/template/",
+        "app/bower/",
+        "app/.htaccess",
+        "app/robots.txt",
+        "dist",
+        ".bowerrc",
+        ".gitignore",
+        ".jshintignore",
+        ".jshintrc",
+        ".editorconfig",
+        "bower.json",
+        "gulpfile.js",
+        "package.json"
+    ],
+  "dependencies": {
+
+  },
+  "devDependencies": {
+    "modernizr": "~2.6.2",
+    "jquery": "1.9.0"
+  }
+}
