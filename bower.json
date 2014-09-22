@@ -1,6 +1,6 @@
 {
-    "name": "Frontendler",
-    "version": "0.0.7",
+    "name": "frontendler-docs",
+    "version": "0.0.8",
     "description": "The responsive development kit",
     "author": {
         "name": "Daniel Beff",
@@ -9,7 +9,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git://github.com/frontendler/frontendler.git"
+        "url": "git://github.com/frontendler/frontendler-docs.git"
     },
     "keywords" : "sass,responsive,frontend,developer,kit",
     "license": "MIT",

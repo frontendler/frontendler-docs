@@ -2,9 +2,8 @@
 
 # Frontendler
 
-
-[![Bower version](https://badge.fury.io/bo/frontendler.svg)](http://badge.fury.io/bo/frontendler)
-[![Build Status](https://travis-ci.org/dbeff/frontendler.svg?branch=master)](https://travis-ci.org/dbeff/frontendler)
+[![Frontendler version](http://img.shields.io/badge/frontendler-v0.0.7-blue.svg?style=flat)](https://github.com/frontendler/frontendler)
+[![Build Status](http://img.shields.io/travis/frontendler/frontendler.svg?style=flat)](https://travis-ci.org/frontendler/frontendler)
 
 The responsive frontend kit.
 
@@ -16,18 +15,17 @@ http://frontendler.com.br/
 
 Frontendler need sass,nodeJs and gulp to run.
 
-SASS - [How to install](http://sass-lang.com/install)
+RUBY - [How to install](https://www.ruby-lang.org/)
+
+SASS (3.3.14) ```$ gem install sass -v 3.3.14```
 
 NODE JS - [How to install](http://nodejs.org/)
 
-GULP
-```
-$ npm install gulp -g
-```
+GULP ```$ npm install gulp -g```
 
 ## Install
 
-Install project dependencies ```$ npm install```
+Install project node dependencies ```$ npm install```
 
 ##Run frontendler
 
@@ -102,7 +100,7 @@ grid-breakpoint-hide
 grid-breakpoint-show
 
 ```scss
-@mixin grid-breakpoint-hide ($devices...);
+@mixin grid-breakpoint-show ($devices...);
 ```
 
 ### THEME
@@ -131,14 +129,7 @@ theme-color
 @function theme-color($color-name,$color-status:false)
 ```
 
-theme-all
-```scss
-@mixin theme-all($type)
-```
-
 theme
 ```scss
-@mixin theme($color,$type) {
-	//put your css
-}
+@mixin theme ($color-name,$background-property:background,$foreground-property:color,$state:false)
 ```

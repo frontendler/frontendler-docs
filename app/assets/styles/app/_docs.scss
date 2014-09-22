@@ -32,8 +32,9 @@
                 }
             }
             .bt-menu{
-                @include grid-breakpoint-hide(desktop);
-                @include grid-breakpoint-hide(desktop-large);
+                display:none;
+                // @include grid-breakpoint-hide(desktop);
+                // @include grid-breakpoint-hide(desktop-large);
                 border-radius:3px;
                 position: absolute;
                 top:10px;
@@ -219,7 +220,7 @@
     pre.box-code{
         code {
             border-radius: 5px;
-            font-family: 'Open Sans';
+            font-family: 'Source Sans Pro';
             letter-spacing: 0.035em;
             white-space: pre-line;
             padding: 10px;
@@ -229,6 +230,10 @@
             color:#606c78;
             display:block;
             font-size:14px;
+            
+            a{
+                color:theme-color(ocean,background);
+            }
         }
     }
 
@@ -289,7 +294,7 @@
             @include grid-col(12);
         }
         .color {
-            @include theme-all(background);
+            // @include theme-all(background);
             border-radius:50%;
             display: inline-block;
             width: 15px;

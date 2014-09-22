@@ -1,8 +1,8 @@
 extends /_layouts/_docs
 block link
-	-var selected = 'Library';
+	-var selected = 'Core';
 block sidebar
-	include /_includes/_docs_sidebar_library
+	include /_includes/_docs_sidebar_core
 block content
 	article.grid
 		+title("Grid")
@@ -13,17 +13,18 @@ block content
 				$grid-gutter-outer: 5px;
 			+command("grid-breakpoints","scss","grid-breakpoints").
 				$grid-breakpoints:(
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;phone: 100% max 480px,
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tablet: 100% min 481px max 1023px,
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;desktop: 1000px min 1024px max 1200px,
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;desktop-large: 1200px min 1200px
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;phone: 100% max 480px,
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tablet: 100% min 481px max 768px,
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tablet-large: 100% min 769px max 1024px,
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;desktop: 1024px min 1024px max 1199px,
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;desktop-large: 1200px min 1200px
 				);
 			+command("grid-row","scss","grid-row").
-				@include grid-row($empty: false, $fluid: false);
+				@include grid-row($gutter: $grid-gutter-outside, $breakpoints: $grid-breakpoints)
 			+command("grid-col","scss","grid-col").
-				@include grid-col ($col, $cols: 12, $collapse: false);
+				@include grid-col($col, $cols: 12, $gutter: $grid-gutter);
 			+command("grid-col-breakpoint","scss","grid-col-breakpoint").
-				@include grid-col-breakpoint ($device, $col, $cols: 12, $collapse: false);
+				@include grid-col-breakpoint($device, $col, $cols: 12, $gutter: false);
 			+command("grid-breakpoint","scss","grid-breakpoint").
 				@include grid-breakpoint ($devices...){
 					...
@@ -58,6 +59,5 @@ block content
 			+command("theme-color","scss","theme-color").
 				theme-color ($color-name, $color-status:false);
 			+command("theme","scss","theme").
-				@include theme ($color, $type);
-			+command("theme-all","scss","theme-all").
-				@include theme-all ($type);
+				@include theme ($color-name, $background-property:background-color, $foreground-property:color, $state:false);
+			
