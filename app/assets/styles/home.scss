@@ -12,7 +12,7 @@ $font-family-logo: "Grand Hotel";
 header {
 	@extend %clearfix;
 	position:relative;
-	
+
 	.pg-canvas{
 		position:absolute;
 		top:0;
@@ -58,10 +58,10 @@ h3 {
 }
 
 @include grid-breakpoint(phone,tablet) {
-	
+
 	h1{
 		font-size: 70px;
-		line-height: 40px;	
+		line-height: 40px;
 	}
 	h2{
 		font-size:20px;
@@ -86,10 +86,10 @@ h3 {
 	font-size: 14px;
 	margin: 0 $grid-gutter / 2 $grid-gutter / 2 0;
 	.documentation{
-		@include theme(ocean,background);	
+		@include theme(ocean,background);
 	}
 	.github{
-		@include theme(blue,background);	
+		@include theme(blue,background);
 	}
 }
 
@@ -126,7 +126,7 @@ h3 {
 //------------------------------------------------------
 //FOOTER
 //------------------------------------------------------
-.footer {
+footer {
 	@include grid-breakpoint-hide(tablet);
 	.container {
 		@include grid-row();
@@ -135,5 +135,15 @@ h3 {
 	background: theme-color(dark);
 	color: #fff;
 	padding: 15px 0;
-}
 
+	.link,.me{
+		color:theme-color(ocean,foreground);
+	}
+	.me{
+		margin-right:20px;
+	}
+	.link{
+		margin:0 20px;
+	}
+
+}

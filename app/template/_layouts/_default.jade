@@ -38,20 +38,25 @@ html(lang="en")
 		// build:js /assets/scripts/modernizr.js
 		script(src='/bower/modernizr/modernizr.js')
 		// endbuild
-		
+
 		//html5 and media query suport for IE 9
 		<!--[if lt IE 9]>
 		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
-		
+
 		body
 			block body
-			
-		
-		
-		
-			// Footer
+
 			footer
+
+				div.container
+					p
+						span.text Frontendler by 
+							a(href="https://github.com/dbeff/frontendler").me Daniel Beff
+						a(href="https://github.com/frontendler/frontendler").link source code
+						a(href="https://github.com/frontendler/frontendler").link issues
+
+
 
 				// build:js /assets/scripts/main.js
 				script(src='/bower/jquery/jquery.min.js')
@@ -68,5 +73,3 @@ html(lang="en")
 
 					ga('create', 'UA-12457267-6', 'frontendler.com.br');
 					ga('send', 'pageview');
-
-

@@ -1,20 +1,20 @@
 $(document).ready(function() {
     //higlightjs
-    
+
     //select
     $('.select').each(function (){
         var select = $(this);
         select.find ('.select-btn span.text').html(select.find('select :selected').text());
         select.find ('.select-btn').click (function (){
             console.
-            $(this).closest('.select').find('select').trigger('click');    
+            $(this).closest('.select').find('select').trigger('click');
         });
         select.find ('select').change(function() {
             var a = $(this).closest('.select').find('.select-btn');
-            a.find('span.text').html($(this).find(':selected').text());   
+            a.find('span.text').html($(this).find(':selected').text());
         });
     });
-    
+
     $('header').particleground({
         lineColor:'#2c475f',
         dotColor:'#305b82',
@@ -24,7 +24,7 @@ $(document).ready(function() {
         proximity:110,
         density:15000,
         parallax:false
-    }); 
+    });
 
     //$('.select .select-btn').find('span.text').html($('.select select').find(':selected').text());
     // $('.select .select-btn').click (function (){
