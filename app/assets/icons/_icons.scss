@@ -26,6 +26,9 @@
 	@if $filename == sass {
 		$char: "\E001";
 	}
+	@if $filename == teste {
+		$char: "\E002";
+	}
 
 	@return $char;
 }
@@ -39,6 +42,9 @@
 @mixin icon-classes (){
 	.icon-sass {
 		@include icon(sass);
+	}
+	.icon-teste {
+		@include icon(teste);
 	}
 		
 }

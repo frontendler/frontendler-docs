@@ -4,7 +4,15 @@
 .home{
 	.header {
 		@include clearfix;
-		background: theme-color(dark);
+		position:relative;
+		
+		.pg-canvas{
+			position:absolute;
+			top:0;
+			left:0;
+			background: theme-color(dark);
+			z-index:-1;
+		}
 
 		.container {
 			@include grid-row;

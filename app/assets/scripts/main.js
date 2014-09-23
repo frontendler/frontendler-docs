@@ -14,6 +14,17 @@ $(document).ready(function() {
             a.find('span.text').html($(this).find(':selected').text());   
         });
     });
+    
+    $('.header').particleground({
+        lineColor:'#2c475f',
+        dotColor:'#305b82',
+        directionX:'right',
+        particleRadius:5,
+        curvedLines:false,
+        proximity:110,
+        density:15000,
+        parallax:false
+    }); 
 
     //$('.select .select-btn').find('span.text').html($('.select select').find(':selected').text());
     // $('.select .select-btn').click (function (){
