@@ -15,7 +15,7 @@ $(document).ready(function() {
         });
     });
     
-    $('.header').particleground({
+    $('header').particleground({
         lineColor:'#2c475f',
         dotColor:'#305b82',
         directionX:'right',

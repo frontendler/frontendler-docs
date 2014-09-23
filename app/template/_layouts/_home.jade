@@ -1,9 +1,13 @@
 include /_mixins/_title
 include /_mixins/_subtitle
 include /_mixins/_command
-include /_includes/_header
-//-body(class=page)
 
-body(class="home")
+block style
+	// build:css /assets/styles/home.css
+	link(rel='stylesheet', href='/assets/styles/home.css')
+	// endbuild
+
+extends _default
+block body
 	block content
-	include /_includes/_footer
+	

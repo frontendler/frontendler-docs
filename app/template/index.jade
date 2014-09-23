@@ -1,6 +1,6 @@
 extends /_layouts/_home
 block content
-	div.header
+	header
 		div.container
 			div.info
 				h1 Frontendler<small>Beta</small>
@@ -9,7 +9,7 @@ block content
 				div.buttons
 					a.btn.documentation(href="/docs") Documentation
 					a.btn.github(href="https://github.com/frontendler/frontendler") Github
-	div.about
+	section.about
 		div.container
 			div.item
 				h4 SASS
@@ -17,26 +17,34 @@ block content
 			div.item
 				h4 Inspect reset
 				p A modern, HTML5-ready alternative to CSS resets.
+				p Focusing on little code as possible, improving inspection in browser.					
+				
 			div.item
 				h4 Semantic Grid
 				p The frontendler responsive SASS semantic grid.
 				p Use a few lines to make a complex responive layout.
 		div.container
 			div.item
-				h4 Components
-				p <small class="label ocean">coming soon</small>
-				//p Setting up Font Awesome can be as simple as adding two lines of code to your website.
+				h4 Browser Sync
+				p Makes your browser testing workflow faster by synchronising URLs, interactions and code changes across multiple devices.
 			div.item
-				h4 Form validation
-				p <small class="label ocean">coming soon</small>
+				h4 Theme
+				p Control your color palette in an organized manner and get their colors through behaviors.
 			div.item
-				h4 Plugins
-				p <small class="label ocean">coming soon</small>
-	br
-	br
-	br
-	br
-	br
+				h4 Gulp
+				p Use gulp for minify, concatenate and genarate a aplication build.
+		div.container
+			div.item
+				h4 Jshint
+				p Validate your javascripts for improving code quality.
+			div.item
+				h4 Image optimization
+				p Optimize many type of images
+			div.item
+				h4 Concatenate files
+				p To decrease the number of requests
+			
+	
 	div.footer
 		div.container
 			p Frontendler by Daniel Beff

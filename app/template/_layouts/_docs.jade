@@ -1,17 +1,21 @@
 include /_mixins/_title
 include /_mixins/_subtitle
 include /_mixins/_command
-include /_includes/_header
 
-block link
-	-var selected = 'Start';
--var menu = { 'Start': '/docs', 'Core': '/docs/core'	};
+extends _default
 
-body(class="docs")
+block style
+	// build:css /assets/styles/docs.css
+	link(rel='stylesheet', href='/assets/styles/docs.css')
+	// endbuild
+	
+block body
+	block link
+		-var selected = 'Start';
+	-var menu = { 'Start': '/docs', 'Core': '/docs/core'	};
 	include /_includes/_docs_top
 	div.docs-main
 		block sidebar
 		div.docs-content
 			block content
 	include /_includes/_docs_bottom
-	include /_includes/_footer

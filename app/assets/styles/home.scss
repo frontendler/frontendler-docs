@@ -1,0 +1,139 @@
+//------------------------------------------------------
+//FRONTENDLER
+//------------------------------------------------------
+@import "frontendler/frontendler";
+
+
+$font-family-logo: "Grand Hotel";
+//------------------------------------------------------
+//HEADER
+//------------------------------------------------------
+
+header {
+	@extend %clearfix;
+	position:relative;
+	
+	.pg-canvas{
+		position:absolute;
+		top:0;
+		left:0;
+		background: theme-color(dark);
+		z-index:-1;
+	}
+
+	.container {
+		@include grid-row;
+		padding-top: 50px;
+		padding-bottom: 50px;
+	}
+}
+
+h1 {
+	font-size: 120px;
+	color: #fff;
+	font-family: $font-family-logo;
+	margin: 0;
+	text-shadow: 0 0 16px rgba(0, 0, 0, 0.2);
+
+	small {
+		color: #B0C3D4;
+		font-family: $font-family;
+		font-size: 15px;
+		margin-left: 20px;
+		font-weight: normal;
+		@include grid-breakpoint(phone) {
+			display: block;
+		}
+	}
+}
+h2 {
+	color: #B0C3D4;
+	margin: 10px 0;
+}
+h3 {
+	margin-top: 0;
+	margin-bottom: 30px;
+	color: #B0C3D4;
+	font-size:25px;
+}
+
+@include grid-breakpoint(phone,tablet) {
+	
+	h1{
+		font-size: 70px;
+		line-height: 40px;	
+	}
+	h2{
+		font-size:20px;
+	}
+	h3{
+		font-size:16px;
+	}
+}
+
+
+.info {
+	@include grid-col(12, 12);
+}
+.btn {
+	border-radius:3px;
+	transition: background-color $transition-speed, color $transition-speed;
+	box-sizing:border-box;
+	display: inline-block;
+	padding: $grid-gutter/4 $grid-gutter/2 ;
+	cursor: pointer;
+	font-weight: 600;
+	font-size: 14px;
+	margin: 0 $grid-gutter / 2 $grid-gutter / 2 0;
+	.documentation{
+		@include theme(ocean,background);	
+	}
+	.github{
+		@include theme(blue,background);	
+	}
+}
+
+.label {
+	@include theme(ocean,background);
+	border-radius:3px;
+	display: inline-block;
+	padding: 1px 8px 4px 8px;
+	font-size: $font-size-text - 1;
+	line-height: inherit;
+	font-weight: 600;
+}
+
+//------------------------------------------------------
+//ABOUT
+//------------------------------------------------------
+.about {
+	margin-top: $grid-gutter;
+	.container {
+		@include grid-row;
+	}
+	.item {
+		@include grid-col(4);
+		@include grid-col-breakpoint (tablet,12);
+		@include grid-col-breakpoint (phone,12);
+		margin-bottom: $grid-gutter;
+		h4 {
+			font-size: 20px;
+			margin-bottom: $grid-gutter / 2;
+		}
+	}
+}
+
+//------------------------------------------------------
+//FOOTER
+//------------------------------------------------------
+.footer {
+	@include grid-breakpoint-hide(tablet);
+	.container {
+		@include grid-row();
+		@include grid-col(12);
+	}
+	background: theme-color(dark);
+	color: #fff;
+	padding: 15px 0;
+}
+
