@@ -3,6 +3,7 @@
 //------------------------------------------------------
 @import "frontendler/frontendler";
 
+$font-family-logo: "Grand Hotel";
 
 html,body {
 	width: 100%;
@@ -129,9 +130,9 @@ h1,h2,h3,h4,h5,h6 {
 	font-weight: normal;
 }
 .btn {
-	
+
 	font-weight: 600;
-	font-size: 14px; 
+	font-size: 14px;
 	&.documentation{
 		@include theme (ocean,background-color,color,hover);
 	}
@@ -143,5 +144,3 @@ h1,h2,h3,h4,h5,h6 {
 	font-weight:600;
 	font-size:14px;
 }
-
-

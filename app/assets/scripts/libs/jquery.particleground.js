@@ -1,3 +1,6 @@
+// Code here will be linted with JSHint.
+/* jshint ignore:start */
+
 /**
  * Particleground
  *
@@ -8,21 +11,21 @@
  * Inspired by:
  * http://requestlab.fr/
  * http://disruptivebydesign.com/
- * 
+ *
  * @license The MIT License (MIT)
- * 
+ *
  * Copyright (c) 2014 Jonathan Nicol - @mrjnicol
- * 
+ *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- * 
+ *
  * The above copyright notice and this permission notice shall be included in
  * all copies or substantial portions of the Software.
- * 
+ *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -31,7 +34,6 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-
 ;(function($) {
   var pluginName = 'particleground';
 
@@ -109,7 +111,7 @@
     }
 
     /**
-     * Draw particles 
+     * Draw particles
      */
     function draw() {
       if (!canvasSupport) { return; }
@@ -167,14 +169,14 @@
     }
 
     /**
-     * Pause particle system 
+     * Pause particle system
      */
     function pause() {
       paused = true;
     }
 
     /**
-     * Start particle system 
+     * Start particle system
      */
     function start() {
       paused = false;
@@ -182,7 +184,7 @@
     }
 
     /**
-     * Particle 
+     * Particle
      */
     function Particle() {
       this.stackPos;
@@ -221,15 +223,15 @@
           this.speed.x += this.speed.y > 0 ? options.minSpeedY : -options.minSpeedY;
           break;
       }
-    } 
+    }
 
     /**
-     * Draw particle 
+     * Draw particle
      */
     Particle.prototype.draw = function() {
       // Draw circle
       ctx.beginPath();
-      ctx.arc(this.position.x + this.parallaxOffsetX, this.position.y + this.parallaxOffsetY, options.particleRadius / 2, 0, Math.PI * 2, true); 
+      ctx.arc(this.position.x + this.parallaxOffsetX, this.position.y + this.parallaxOffsetY, options.particleRadius / 2, 0, Math.PI * 2, true);
       ctx.closePath();
       ctx.fill();
 
@@ -259,7 +261,7 @@
     }
 
     /**
-     * update particle position 
+     * update particle position
      */
     Particle.prototype.updatePosition = function() {
       if (options.parallax) {
@@ -418,22 +420,24 @@
     var vendors = ['ms', 'moz', 'webkit', 'o'];
     for(var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
         window.requestAnimationFrame = window[vendors[x]+'RequestAnimationFrame'];
-        window.cancelAnimationFrame = window[vendors[x]+'CancelAnimationFrame'] 
+        window.cancelAnimationFrame = window[vendors[x]+'CancelAnimationFrame']
                                    || window[vendors[x]+'CancelRequestAnimationFrame'];
     }
- 
+
     if (!window.requestAnimationFrame)
         window.requestAnimationFrame = function(callback, element) {
             var currTime = new Date().getTime();
             var timeToCall = Math.max(0, 16 - (currTime - lastTime));
-            var id = window.setTimeout(function() { callback(currTime + timeToCall); }, 
+            var id = window.setTimeout(function() { callback(currTime + timeToCall); },
               timeToCall);
             lastTime = currTime + timeToCall;
             return id;
         };
- 
+
     if (!window.cancelAnimationFrame)
         window.cancelAnimationFrame = function(id) {
             clearTimeout(id);
         };
 }());
+
+/* jshint ignore:end */

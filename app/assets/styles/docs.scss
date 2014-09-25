@@ -1,161 +1,86 @@
 //------------------------------------------------------
-//FRONTENDLER
+// IMPORTS
 //------------------------------------------------------
 @import "frontendler/frontendler";
+@import "libs/prism";
+@import "docs/config";
+@import "docs/top";
+@import "docs/navbar";
+@import "docs/sidebar";
 
 
 
-$font-family-logo: "Grand Hotel";
+@-webkit-keyframes exemplegrid {
+    from {opacity: 0;transform:translateY(30px);}
+    to {opacity: 1;transform:translateY(0px);}
+}
 
-
-$grid-breakpoints-docs:(
-    phone: 100% max 480px,
-    tablet: 100% min 481px max 1023px,
-    desktop: 100% min 1024px max 1200px,
-    desktop-large: 100% min 1200px
-);
-
-//------------------------------------------------------
-//  TOP
-//------------------------------------------------------
-.docs-top {
-    background-color: theme-color(dark);
-    padding: 3px 0;
-    .container {
-        @include grid-row(false, $grid-breakpoints-docs);
-        .logo {
-            @include grid-col(12, 12);
-            h1 {
-                display: inline;
-                color: lighten(theme-color(dark), 70%);
-                font-family: $font-family-logo;
-                font-size: 35px;
-            }
-            small {
-                font-family: $font-family;
-                font-size: 15px;
-                margin-left: 10px;
-                font-weight: 600;
-                color: theme-color(ocean,foreground);
-            }
-        }
-        .bt-menu{
-            display:none;
-            // @include grid-breakpoint-hide(desktop);
-            // @include grid-breakpoint-hide(desktop-large);
+.exemple-grid{
+    @include grid-col(12);
+    margin-bottom:$grid-gutter;
+    opacity:0;
+    animation: exemplegrid $transition-speed*3;
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
+    .viewport{
+        @include grid-col(12);
+        border:1px dashed theme-color(silver,foreground);;
+        min-height:100px;
+        color:theme-color(ocean);
+        padding-top: 10px;
+        padding-bottom:20px;
+        border-radius:3px;
+        margin-top:5px;
+        font-weight:600;
+        opacity:0;
+        animation: exemplegrid $transition-speed*3;
+        animation-delay: 1.5s;
+        animation-fill-mode: forwards;
+        .row{
+            @include grid-col(12,12,false);
+            border:1px solid theme-color(ocean,foreground);
+            height:100%;
+            margin-top:5px;
+            padding-top:20px;
+            padding-bottom:20px;
             border-radius:3px;
-            position: absolute;
-            top:10px;
-            right:10px;
-            background: theme-color(dark,background-hover);
-            color: #72797f;
-            font-weight: 600;
-            padding:5px 10px;
-            cursor: pointer;
-        }
-    }
-}
-//------------------------------------------------------
-//  NAVBAR
-//------------------------------------------------------
-.docs-navbar {
-    background-color: theme-color(ocean);
-    color: #a4d6e5;
-    .container {
-        @include grid-row(false, $grid-breakpoints-docs);
-        font-weight: 600;
-        .menu {
-            @include grid-col(8, 12);
-            .itens {
-                margin: 0;
-                list-style: none;
-                .item {
-                    float: left;
-                    .link {
-                        color: theme-color(ocean,"foreground");
-                        //color: #b3e5ef;
-                        cursor: pointer;
-                        padding: 10px 20px 10px 0;
-                        &:hover {
-                            color: theme-color(ocean,"foreground-hover");
-                        }
-                        &.selected{
-                            color: theme-color(ocean,"foreground-hover");
-                            font-weight: bold;
-                        }
-                    }
+            opacity:0;
+            animation: exemplegrid $transition-speed*3;
+            animation-delay: 2.5s;
+            animation-fill-mode: forwards;
+            .col {
+                @include grid-col(3,12);
+                @include grid-col-breakpoint(phone,12,12);
+                @include grid-col-breakpoint(tablet,6,12);
+                @include grid-breakpoint(phone,tablet)
+                {
+                    margin-bottom:$grid-gutter/4;
+                    margin-top:$grid-gutter/4;
                 }
-            }
-        }
-    }
-}
-//------------------------------------------------------
-//  SIDEBAR
-//------------------------------------------------------
-.docs-sidebar {
-    @include grid-col(2, 12);
-    @include grid-breakpoint-hide(tablet);
-    @include grid-breakpoint-hide(phone);
-    vertical-align: top;
-    padding-top: $grid-gutter / 2;
-    padding-bottom: $grid-gutter / 2;
-    background-color: #ecf0f1;
-
-    .tree {
-        @include grid-col(3, 12, 0);
-        width: 100%;
-        .group {
-            width: 100%;
-            &.open {
-                .title,.title:hover {
-                    &:after {
-                        content: "+";
-                    }
-                }
-            }
-            .title {
-                display: block;
-                color: transparentize(theme-color(dark), 0.3);
-                font-weight: 600;
-                padding: 2px 0;
-                font-size:17px;
-                &:after {
+                height:100%;
+                opacity:0;
+                animation: exemplegrid $transition-speed*3;
+                animation-delay: 3.5s;
+                animation-fill-mode: forwards;
+                .line{
+                    border:1px solid theme-color(ocean);
+                    height:100%;
                     border-radius:3px;
-                    margin-left: 5px;
-                }
-                &:hover {
-                    &:after {
-                        content: "-";
-                    }
-                }
-            }
-            .itens {
-                display: block;
-                margin-bottom:$grid-gutter/2;
-                list-style: none;
-                .item {
-                    .link {
-                        color: transparentize(theme-color(dark), 0.7);
-                        font-weight: 600;
-                        padding-left: $grid-gutter / 4;
-                        font-size: 14px;
-                        padding: 2px 10px;
-                        font-size: 13px;
-                        &:hover {
-                            color: theme-color(ocean);
-                        }
-                    }
+                    border-radius:3px;
+                    display:block;
+                    text-align:center;
+                    padding:10px 0;
                 }
             }
         }
     }
 }
+
 //------------------------------------------------------
 //  MAIN
 //------------------------------------------------------
-
 .docs-main {
-    @include grid-row(false, $grid-breakpoints-docs);
+    @include grid-row(false);
     background: #ecf0f1;
 }
 //------------------------------------------------------
@@ -237,10 +162,11 @@ pre.box-code{
         background:#fff;
         color:#606c78;
         display:block;
-        font-size:14px;
-        
+        font-size:13px;
+
         a{
             color:theme-color(ocean,background);
+            font-size:inherit;
         }
     }
 }
@@ -425,3 +351,33 @@ pre.box-code{
     }
 }
 
+
+footer {
+    .container {
+        @include grid-row();
+        @include grid-col(12);
+    }
+    background: theme-color(dark);
+    color: #fff;
+    padding: 15px 0;
+
+    .logo {
+        .url{
+            font-family:$font-family-logo;
+            font-size:30px;
+            margin-right:20px;
+            color:#fff;
+        }
+    }
+    .link,.me{
+        color:theme-color(ocean,foreground);
+    }
+    .me{
+        margin-right:20px;
+    }
+    .link{
+        margin:0 20px;
+        font-weight:600;
+    }
+
+}

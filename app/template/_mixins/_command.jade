@@ -3,8 +3,6 @@ mixin command(name,type,hash)
 		h3.command-name
 			a(name="#{hash}").name=name
 		pre.box-code
-			code(class="#{type}")
+			code(class="language-#{type}")
 				if block
 					block
-
-

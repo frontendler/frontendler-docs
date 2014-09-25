@@ -8,7 +8,10 @@ block style
 	// build:css /assets/styles/docs.css
 	link(rel='stylesheet', href='/assets/styles/docs.css')
 	// endbuild
-	
+
+block script
+	script(src='/assets/scripts/libs/prism.js')
+
 block body
 	block link
 		-var selected = 'Start';
@@ -18,4 +21,3 @@ block body
 		block sidebar
 		div.docs-content
 			block content
-	include /_includes/_docs_bottom

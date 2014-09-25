@@ -8,11 +8,11 @@ block content
 		+title("Dependencies")
 		div.install
 			div.container
-				+command("Ruby","bash","sass").
+				+command("Ruby","text","sass").
 					Download and install instructions in <a href="https://www.ruby-lang.org/">https://www.ruby-lang.org/</a>
 				+command("Sass (v3.3.14)","bash","sass").
-					$ sudo gem install sass -v 3.3.14
-				+command("Node","bash","node").
+					$sudo gem install sass -v 3.3.14
+				+command("Node","text","node").
 					Download and install instructions in this page <a href="http://nodejs.org/">http://nodejs.org/</a>
 				+command("Gulp","bash","gulp").
 					$npm install gulp -g
@@ -20,16 +20,16 @@ block content
 		div.install
 			div.container
 				+command("Clone the project","bash","clone").
-					$ git clone git@github.com:frontendler/frontendler.git
+					$git clone git@github.com:frontendler/frontendler.git
 				+command("Install project dependencies","bash","npm").
-					$ npm install
+					$npm install
 		+title("Run Frontendler")
 		div.install
 			div.container
 				+command("Watch","bash","watch").
-					$ gulp watch
+					$gulp watch
 				+command("Build","bash","build").
-					$ gulp build
+					$gulp build
 		//- +title("Yeoman generator")
 		//- div.install
 		//- 	div.container
