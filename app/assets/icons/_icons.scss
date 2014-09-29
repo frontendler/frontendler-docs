@@ -23,14 +23,26 @@
 @function icon-char($filename) {
 	$char: "";
 
-	@if $filename == home-grid {
+	@if $filename == home-browser {
 		$char: "\E001";
 	}
-	@if $filename == sass {
+	@if $filename == home-grid {
 		$char: "\E002";
 	}
-	@if $filename == teste {
+	@if $filename == home-reset {
 		$char: "\E003";
+	}
+	@if $filename == home-sass {
+		$char: "\E004";
+	}
+	@if $filename == home-theme {
+		$char: "\E005";
+	}
+	@if $filename == sass {
+		$char: "\E006";
+	}
+	@if $filename == teste {
+		$char: "\E007";
 	}
 
 	@return $char;
@@ -43,8 +55,20 @@
 	}
 }
 @mixin icon-classes (){
+	.icon-home-browser {
+		@include icon(home-browser);
+	}
 	.icon-home-grid {
 		@include icon(home-grid);
+	}
+	.icon-home-reset {
+		@include icon(home-reset);
+	}
+	.icon-home-sass {
+		@include icon(home-sass);
+	}
+	.icon-home-theme {
+		@include icon(home-theme);
 	}
 	.icon-sass {
 		@include icon(sass);

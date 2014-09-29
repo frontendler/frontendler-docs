@@ -153,9 +153,18 @@ h3 {
 	}
 	.item {
 		@include grid-col(4);
-		@include grid-col-breakpoint (tablet,12);
+		@include grid-col-breakpoint (tablet-large,6);
+		@include grid-col-breakpoint (tablet,6);
 		@include grid-col-breakpoint (phone,12);
 		margin: $grid-gutter 0;
+		img{
+			width:80%;
+			display:block;
+			margin:0 auto;
+			@include grid-breakpoint (phone){
+				width:80%;
+			}
+		}
 		h4 {
 			display:block;
 			text-align:center;
@@ -163,7 +172,8 @@ h3 {
 			margin: 0 0 $grid-gutter / 2 0;
 		}
 		p{
-			@include grid-breakpoint (phone){
+
+			@include grid-breakpoint (phone,tablet,tablet-large){
 				text-align:center;
 			}
 		}
