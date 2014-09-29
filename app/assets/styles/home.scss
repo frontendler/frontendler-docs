@@ -172,9 +172,12 @@ h3 {
 			margin: 0 0 $grid-gutter / 2 0;
 		}
 		p{
-
+			height:80px;
 			@include grid-breakpoint (phone,tablet,tablet-large){
 				text-align:center;
+			}
+			@include grid-breakpoint(phone){
+				height:auto;
 			}
 		}
 	}

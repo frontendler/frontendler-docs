@@ -29,20 +29,23 @@
 	@if $filename == home-grid {
 		$char: "\E002";
 	}
-	@if $filename == home-reset {
+	@if $filename == home-gulp {
 		$char: "\E003";
 	}
-	@if $filename == home-sass {
+	@if $filename == home-reset {
 		$char: "\E004";
 	}
-	@if $filename == home-theme {
+	@if $filename == home-sass {
 		$char: "\E005";
 	}
-	@if $filename == sass {
+	@if $filename == home-theme {
 		$char: "\E006";
 	}
-	@if $filename == teste {
+	@if $filename == sass {
 		$char: "\E007";
+	}
+	@if $filename == teste {
+		$char: "\E008";
 	}
 
 	@return $char;
@@ -60,6 +63,9 @@
 	}
 	.icon-home-grid {
 		@include icon(home-grid);
+	}
+	.icon-home-gulp {
+		@include icon(home-gulp);
 	}
 	.icon-home-reset {
 		@include icon(home-reset);

@@ -367,10 +367,14 @@ footer {
             font-size:30px;
             margin-right:20px;
             color:#fff;
+            @include grid-breakpoint(phone){
+                margin-right:10px;
+            }
         }
     }
     .link,.me{
         color:theme-color(ocean,foreground);
+
     }
     .me{
         margin-right:20px;
@@ -378,6 +382,9 @@ footer {
     .link{
         margin:0 20px;
         font-weight:600;
+        @include grid-breakpoint(phone){
+            margin:0 8px;
+        }
     }
 
 }
