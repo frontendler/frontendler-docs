@@ -2,8 +2,9 @@
 
 # Frontendler
 
-[![Frontendler version](http://img.shields.io/badge/frontendler-v0.0.7-blue.svg?style=flat)](https://github.com/frontendler/frontendler)
+[![Frontendler version](http://img.shields.io/badge/frontendler-v0.0.9-blue.svg?style=flat)](https://github.com/frontendler/frontendler)
 [![Build Status](http://img.shields.io/travis/frontendler/frontendler.svg?style=flat)](https://travis-ci.org/frontendler/frontendler)
+[![Issues](http://img.shields.io/github/issues/frontendler/frontendler.svg?style=flat)](https://github.com/frontendler/frontendler/issues)
 
 The responsive frontend kit.
 
@@ -18,6 +19,7 @@ Frontendler need sass,nodeJs and gulp to run.
 RUBY - [How to install](https://www.ruby-lang.org/)
 
 SASS (3.3.14) ```$ gem install sass -v 3.3.14```
+
 
 NODE JS - [How to install](http://nodejs.org/)
 
@@ -59,10 +61,11 @@ grid-breakpoints
 
 ```scss
 $grid-breakpoints:(
-phone: 100% max 480px,
-tablet: 100% min 481px max 1023px,
-desktop: 1000px min 1024px max 1200px,
-desktop-large: 1200px min 1200px
+	phone: 100% max 480px,
+	tablet: 100% min 481px max 768px,
+	tablet-large: 100% min 769px max 1024px,
+	desktop: 1024px min 1024px max 1199px,
+	desktop-large: 1200px min 1200px
 );
 ```
 grid-row
@@ -80,7 +83,9 @@ grid-col
 grid-col-breakpoint
 
 ```scss
-@mixin grid-col-breakpoint($device, $col, $cols: 12, $gutter: false)
+@mixin grid-col-breakpoint($device, $col, $cols: 12, $gutter: false){
+	"optional custom css"
+}
 ```
 
 grid-breakpoint

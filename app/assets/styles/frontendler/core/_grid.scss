@@ -43,6 +43,7 @@
 			padding-left: $gutter / 2;
 			padding-right: $gutter / 2;
 		}
+		@content;
 	}
 }
 @mixin grid-breakpoint($devices...) {

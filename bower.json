@@ -1,6 +1,5 @@
 {
     "name": "frontendler-docs",
-    "version": "0.0.8",
     "description": "The responsive development kit",
     "author": {
         "name": "Daniel Beff",
@@ -11,34 +10,11 @@
         "type": "git",
         "url": "git://github.com/frontendler/frontendler-docs.git"
     },
-    "keywords" : "sass,responsive,frontend,developer,kit",
-    "license": "MIT",
-    "homepage": "http://frontendler.com.br/",
-    "main":"app/assets/styles/frontendler/_frontendler.scss",
-    "ignore": [
-        "app/assets/icons/",
-        "app/assets/images/",
-        "app/assets/scripts/",
-        "app/assets/styles/app/",
-        "app/template/",
-        "app/bower/",
-        "app/.htaccess",
-        "app/robots.txt",
-        "dist",
-        ".bowerrc",
-        ".gitignore",
-        ".jshintignore",
-        ".jshintrc",
-        ".editorconfig",
-        "bower.json",
-        "gulpfile.js",
-        "package.json"
-    ],
-  "dependencies": {
+    "dependencies": {
 
-  },
-  "devDependencies": {
-    "modernizr": "~2.6.2",
-    "jquery": "1.9.0"
-  }
+    },
+    "devDependencies": {
+        "modernizr": "~2.6.2",
+        "jquery": "1.9.0"
+    }
 }

@@ -11,8 +11,8 @@ var plugins = require('gulp-load-plugins')();
 var del = require('del');
 var runSequence = require('run-sequence');
 var browserSync = require('browser-sync');
-var pagespeed = require('psi');
 var reload = browserSync.reload;
+var pagespeed = require('psi');
 
 
 //-------------------------------------------------------------------
@@ -28,12 +28,8 @@ var prod = 'dist';
 var styles = 'assets/styles';
 var scripts = 'assets/scripts';
 var images = 'assets/images';
-var icons = 'assets/icons';
 var fonts = 'assets/fonts';
 var template = 'template';
-
-//font
-var fontName = 'frontendler-icons';
 
 var AUTOPREFIXER_BROWSERS = [
   'ie >= 9',
@@ -54,7 +50,10 @@ var AUTOPREFIXER_BROWSERS = [
 gulp.task('styles',function() {
 	return gulp.src( app + '/' + styles + '/**/*.scss')
 		.pipe(plugins.plumber())
+
+        //if you want genarate only the changed file
 		//.pipe(plugins.changed(app + '/' + styles, {extension: '.scss'}))
+
 		.pipe(plugins.rubySass({
 			style: 'expanded',
 			precision: 10,
@@ -62,14 +61,12 @@ gulp.task('styles',function() {
 		}))
 		.pipe(plugins.autoprefixer(AUTOPREFIXER_BROWSERS))
 		.pipe(gulp.dest( dev + '/' + styles))
-        .pipe(reload({stream:true}))
         .pipe(plugins.size({title: 'styles'}));
 });
 
 gulp.task('scripts', function() {
 	return gulp.src(app + '/' + scripts + '/**/*.js')
 		.pipe(plugins.plumber())
-		.pipe(reload({stream: true, once: true}))
 	    .pipe(plugins.jshint())
 	    .pipe(plugins.jshint.reporter('jshint-stylish'))
 	    .pipe(plugins.if(!browserSync.active, plugins.jshint.reporter('fail')));
@@ -86,22 +83,6 @@ gulp.task('templates', function() {
 		}))
 		.pipe(gulp.dest(dev + '/'))
 		.pipe(plugins.size({title: 'template'}));
-});
-
-gulp.task('icons', function() {
-	return gulp.src([app + '/' + icons + '/svg/**/*.svg'])
-		.pipe(plugins.plumber())
-		.pipe(plugins.iconfontCss({
-			fontName: fontName,
-			path: app + '/' + icons + '/_icons_template.scss',
-			targetPath: '_icons.scss',
-			fontPath:  '../icons/'
-		}))
-		.pipe(plugins.iconfont({
-			fontName: fontName
-		}))
-		.pipe(gulp.dest(app + '/' + icons ))
-		.pipe(plugins.size({title: 'icons'}));
 });
 
 gulp.task('images', function() {
@@ -139,21 +120,20 @@ gulp.task('clean:dev', del.bind(null, [dev]));
 gulp.task('serve:dev', function () {
 
 	browserSync({
-		notify: true,
 		logFileChanges:true,
-		//tunnel: 'frontendler',
-		port:9000,
+        notify: true,
+        // Customize the BrowserSync console logging prefix
+        logPrefix: 'Frontendler',
 		server: {
 			baseDir: [dev,app]
 		}
 	});
 
 	gulp.watch( [app + '/' + template + '/**/*.jade'], ['templates',reload]);
-	gulp.watch( [app + '/' + styles + '/**/*.scss',app + '/' + icons + '/**/*.scss'], ['styles']);
 	gulp.watch( [app + '/' + scripts + '/**/*.js'], ['scripts',reload]);
+    gulp.watch( [app + '/' + styles + '/**/*.scss'], ['styles',reload]);
+    gulp.watch( [app + '/' + fonts + '**/*'], ['fonts',reload]);
 	gulp.watch( [app + '/' + images + '/**/*'], [reload]);
-	gulp.watch( [app + '/' + icons + '/svg/**/*.svg'], ['icons',reload]);
-	gulp.watch( [app + '/' + fonts + '**/*'], ['fonts',reload]);
 
 });
 
@@ -167,11 +147,9 @@ gulp.task('watch',['clean:dev'],function(cb) {
 
 gulp.task('clean:prod', del.bind(null, [prod]));
 gulp.task('copy:prod', function() {
-	gulp.src(app + '/' + icons + '/*.{eot,svg,ttf,woff}')
-		.pipe(gulp.dest(prod + '/' + icons));
-    gulp.src(app + '/' + fonts + '/**/*.{eot,svg,ttf,woff}')
+    gulp.src([app + '/' + fonts + '/**/*.{eot,svg,ttf,woff}'])
         .pipe(gulp.dest(prod + '/' + fonts));
-    gulp.src([app + '/*.*'],{ dot: true })
+    gulp.src([app + '/*.*','node_modules/apache-server-configs/dist/.htaccess'],{ dot: true })
         .pipe(gulp.dest(prod));
 });
 
@@ -186,6 +164,6 @@ gulp.task('pagespeed', pagespeed.bind(null, {
   // free (no API key) tier. You can use a Google
   // Developer API key if you have one. See
   // http://goo.gl/RkN0vE for info key: 'YOUR_API_KEY'
-  url: 'https://frontendler.com.br'
-  // strategy: 'mobile'
+  url: 'http://www.frontendler.com.br',
+  strategy: 'mobile'
 }));

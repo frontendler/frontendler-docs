@@ -44,7 +44,11 @@ block content
 			+command("grid-col","scss","grid-col").
 				@include grid-col($col, $cols: 12, $gutter: $grid-gutter);
 			+command("grid-col-breakpoint","scss","grid-col-breakpoint").
-				@include grid-col-breakpoint($device, $col, $cols: 12, $gutter: false);
+				@include grid-col-breakpoint($device, $col, $cols: 12, $gutter: false)
+				or
+				@include grid-col-breakpoint($device, $col, $cols: 12, $gutter: false){
+					...
+				};
 			+command("grid-breakpoint","scss","grid-breakpoint").
 				@include grid-breakpoint($devices...){
 					...

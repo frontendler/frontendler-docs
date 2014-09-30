@@ -1,6 +1,3 @@
-// Code here will be linted with JSHint.
-/* jshint ignore:start */
-
 /**
  * Particleground
  *
@@ -439,5 +436,3 @@
             clearTimeout(id);
         };
 }());
-
-/* jshint ignore:end */
