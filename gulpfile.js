@@ -103,6 +103,7 @@ gulp.task('html',function() {
 		.pipe(plugins.plumber())
 		.pipe(assets)
 		.pipe(plugins.if('*.js', plugins.uglify()))
+        .pipe(assets.restore())
 		.pipe(plugins.if('*.css', plugins.csso()))
 		.pipe(assets.restore())
     	.pipe(plugins.useref())
