@@ -27,22 +27,18 @@ html(lang="en")
 		link(rel='apple-touch-icon',href='/assets/images/favicon/icon_57x57.png')
 
 		//fonts
-		link(href='http://fonts.googleapis.com/css?family=Source+Sans+Pro|Grand+Hotel|Open+Sans:400italic,400,600,700,300',rel='stylesheet',type='text/css')
+
 
 		// build:css /assets/styles/base.css
+		link(href='http://fonts.googleapis.com/css?family=Source+Sans+Pro|Grand+Hotel|Open+Sans:400italic,400,600,700,300',rel='stylesheet',type='text/css')
 		link(rel='stylesheet', href='/assets/styles/reset.css')
 		link(rel='stylesheet', href='/assets/styles/base.css')
 		// endbuild
 		block style
 
 		// build:js /assets/scripts/modernizr.js
-		script(src='assets/bower/modernizr/modernizr.js')
+		script(src='assets/scripts/libs/modernizr.js')
 		// endbuild
-
-		//html5 and media query suport for IE 9
-		<!--[if lt IE 9]>
-		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-		<![endif]-->
 
 		body
 			block body
@@ -58,7 +54,7 @@ html(lang="en")
 
 
 				// build:js /assets/scripts/main.js
-				script(src='/assets/bower/jquery/jquery.js')
+				script(src='/assets/scripts/libs/jquery.js')
 				script(src='/assets/scripts/libs/jquery.particleground.js')
 				block script
 				script(src='/assets/scripts/main.js')
