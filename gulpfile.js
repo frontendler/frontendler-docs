@@ -57,7 +57,7 @@ gulp.task('styles',function() {
 		.pipe(plugins.rubySass({
 			style: 'expanded',
 			precision: 10,
-			loadPath: [app]
+			loadPath: [app],
 		}))
 		.pipe(plugins.autoprefixer(AUTOPREFIXER_BROWSERS))
 		.pipe(gulp.dest( dev + '/' + styles))
@@ -103,7 +103,6 @@ gulp.task('html',function() {
 		.pipe(plugins.plumber())
 		.pipe(assets)
 		.pipe(plugins.if('*.js', plugins.uglify()))
-        .pipe(assets.restore())
 		.pipe(plugins.if('*.css', plugins.csso()))
 		.pipe(assets.restore())
     	.pipe(plugins.useref())

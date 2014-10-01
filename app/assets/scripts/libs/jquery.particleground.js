@@ -75,6 +75,10 @@
         particles.push(p);
       };
 
+    $(window).load(function(){
+        styleCanvas();
+    });
+
       $(window).on('resize', function() {
         resizeHandler();
       });
