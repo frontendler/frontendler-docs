@@ -38,7 +38,7 @@ h6{
 }
 
 a {
-	transition: all $transition-speed;
+	transition: all $animation-speed;
 	font-size: $font-size-text;
 }
 
@@ -92,7 +92,7 @@ input[type="tel"],
 input[type="color"],
 textarea {
 	border-radius:3px;
-	transition: border $transition-speed;
+	transition: border $animation-speed;
 	box-sizing: border-box;
 	position: relative;
 	width: 100%;
@@ -134,10 +134,12 @@ h1,h2,h3,h4,h5,h6 {
 	font-weight: 600;
 	font-size: 14px;
 	&.documentation{
-		@include theme (ocean,background-color,color,hover);
+		background-color: theme-color(ocean);
+		color: theme-color(ocean,20%);
 	}
 	&.github{
-		@include theme (blue,background-color,color,hover);
+		background-color: theme-color(blue);
+		color: theme-color(blue,20%);
 	}
 }
 .note{

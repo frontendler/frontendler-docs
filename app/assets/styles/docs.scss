@@ -19,12 +19,12 @@
     @include grid-col(12);
     margin-bottom:$grid-gutter;
     opacity:0;
-    animation: exemplegrid $transition-speed*3;
+    animation: exemplegrid $animation-speed*3;
     animation-delay: 0.5s;
     animation-fill-mode: forwards;
     .viewport{
         @include grid-col(12);
-        border:1px dashed theme-color(silver,foreground);;
+        border:1px dashed theme-color(silver,20%);;
         min-height:100px;
         color:theme-color(ocean);
         padding-top: 10px;
@@ -33,19 +33,19 @@
         margin-top:5px;
         font-weight:600;
         opacity:0;
-        animation: exemplegrid $transition-speed*3;
+        animation: exemplegrid $animation-speed*3;
         animation-delay: 1.5s;
         animation-fill-mode: forwards;
         .row{
             @include grid-col(12,12,false);
-            border:1px solid theme-color(ocean,foreground);
+            border:1px solid theme-color(ocean,20%);
             height:100%;
             margin-top:5px;
             padding-top:20px;
             padding-bottom:20px;
             border-radius:3px;
             opacity:0;
-            animation: exemplegrid $transition-speed*3;
+            animation: exemplegrid $animation-speed*3;
             animation-delay: 2.5s;
             animation-fill-mode: forwards;
             .col {
@@ -59,7 +59,7 @@
                 }
                 height:100%;
                 opacity:0;
-                animation: exemplegrid $transition-speed*3;
+                animation: exemplegrid $animation-speed*3;
                 animation-delay: 3.5s;
                 animation-fill-mode: forwards;
                 .line{
@@ -119,7 +119,7 @@ h2.docs-title {
         padding: 10px 0 30px 0;
         margin: -1px 0 0 0;
         border-top: 4px solid theme-color(ocean);
-        color: theme-color(dark,background);
+        color: theme-color(dark);
     }
     hr {
         background: none;
@@ -165,7 +165,7 @@ pre.box-code{
         font-size:13px;
 
         a{
-            color:theme-color(ocean,background);
+            color:theme-color(ocean);
             font-size:inherit;
         }
     }
@@ -182,7 +182,7 @@ pre.box-code{
         font-size: 18px;
         .name{
             font-size: inherit;
-            color: theme-color(grey,background);
+            color: theme-color(grey);
             cursor: default;
         }
     }
@@ -267,13 +267,13 @@ pre.box-code{
         @include grid-col(12,12,0);
         .form {
             input{
-                @include theme(red,input);
-                @include theme(green,input);
-                @include theme(yellow,input);
+                // @include theme(red,input);
+                // @include theme(green,input);
+                // @include theme(yellow,input);
             }
             .note{
-                @include theme(ocean,note);
-                @include theme(silver,note);
+                // @include theme(ocean,note);
+                // @include theme(silver,note);
             }
             @include grid-col(1, 3);
             @include grid-col-breakpoint(phone, 1, 1);
@@ -340,8 +340,8 @@ pre.box-code{
 
 .grid{
     .grid-row{
-        background-color: theme-color(silver,background-hover);
-        color: theme-color(silver,foreground-hover);
+        background-color: theme-color(silver,45%);
+        color: theme-color(silver,10%);
         .info{
             @include grid-col(12);
         }
@@ -367,13 +367,13 @@ footer {
             font-size:30px;
             margin-right:20px;
             color:#fff;
-            @include grid-breakpoint(phone){
+            @include grid-breakpoint(phone) {
                 margin-right:10px;
             }
         }
     }
     .link,.me{
-        color:theme-color(ocean,foreground);
+        color:theme-color(ocean,20%);
 
     }
     .me{
@@ -382,7 +382,7 @@ footer {
     .link{
         margin:0 20px;
         font-weight:600;
-        @include grid-breakpoint(phone){
+        @include grid-breakpoint(phone) {
             margin:0 8px;
         }
     }
