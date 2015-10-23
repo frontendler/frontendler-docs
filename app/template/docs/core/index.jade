@@ -34,11 +34,11 @@ block content
 				$grid-gutter-outer: 5px;
 			+command("grid-breakpoints","scss","grid-breakpoints").
 				$grid-breakpoints:(
-					phone: 100% max 480px,
-					tablet: 100% min 481px max 768px,
-					tablet-large: 100% min 769px max 1023px,
-					desktop: 1024px min 1024px max 1199px,
-					desktop-large: 1200px min 1200px
+					"phone": 100% max 480px,
+					"tablet": 100% min 481px max 768px,
+					"tablet-large": 100% min 769px max 1023px,
+					"desktop": 1024px min 1024px max 1199px,
+					"desktop-large": 1200px min 1200px
 				);
 			+command("grid-row","scss","grid-row").
 				@include grid-row($gutter: $grid-gutter-outside, $breakpoints: $grid-breakpoints);
@@ -50,8 +50,18 @@ block content
 				@include grid-col-breakpoint($device, $col, $cols: 12, $gutter: false){
 					...
 				};
+			+command("grid-col-breakpoint-custom","scss","grid-col-breakpoint-custom").
+				@include grid-col-breakpoint-custom($min-width, $max-width, $col, $cols: 12, $gutter: false)
+				or
+				@include grid-col-breakpoint-custom($min-width, $max-width, $col, $cols: 12, $gutter: false){
+					...
+				};
 			+command("grid-breakpoint","scss","grid-breakpoint").
 				@include grid-breakpoint($devices...){
+					...
+				};
+			+command("grid-breakpoint-custom","scss","grid-breakpoint-custom").
+				@include grid-breakpoint-custom($min-width, $max-width){
 					...
 				};
 			+command("grid-breakpoint-hide","scss","grid-breakpoint-hide").

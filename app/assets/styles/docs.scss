@@ -24,9 +24,9 @@
     animation-fill-mode: forwards;
     .viewport{
         @include grid-col(12);
-        border:1px dashed theme-color(silver,20%);;
+        border:1px dashed theme-color("silver",20%);;
         min-height:100px;
-        color:theme-color(ocean);
+        color:theme-color("ocean");
         padding-top: 10px;
         padding-bottom:20px;
         border-radius:3px;
@@ -38,7 +38,7 @@
         animation-fill-mode: forwards;
         .row{
             @include grid-col(12,12,false);
-            border:1px solid theme-color(ocean,20%);
+            border:1px solid theme-color("ocean",20%);
             height:100%;
             margin-top:5px;
             padding-top:20px;
@@ -50,9 +50,9 @@
             animation-fill-mode: forwards;
             .col {
                 @include grid-col(3,12);
-                @include grid-col-breakpoint(phone,12,12);
-                @include grid-col-breakpoint(tablet,6,12);
-                @include grid-breakpoint(phone,tablet)
+                @include grid-col-breakpoint("phone",12,12);
+                @include grid-col-breakpoint("tablet",6,12);
+                @include grid-breakpoint("phone","tablet")
                 {
                     margin-bottom:$grid-gutter/4;
                     margin-top:$grid-gutter/4;
@@ -63,7 +63,7 @@
                 animation-delay: 3.5s;
                 animation-fill-mode: forwards;
                 .line{
-                    border:1px solid theme-color(ocean);
+                    border:1px solid theme-color("ocean");
                     height:100%;
                     border-radius:3px;
                     border-radius:3px;
@@ -88,8 +88,8 @@
 //------------------------------------------------------
 .docs-content {
     @include grid-col(10, 12, 0);
-    @include grid-col-breakpoint(phone, 12, 12);
-    @include grid-col-breakpoint(tablet, 12, 12);
+    @include grid-col-breakpoint("phone", 12, 12);
+    @include grid-col-breakpoint("tablet", 12, 12);
     float: left;
     vertical-align: top;
     padding-bottom: $grid-gutter;
@@ -99,11 +99,11 @@
 //  BOTTOM
 //------------------------------------------------------
 .docs-bottom {
-    @include grid-breakpoint-hide(tablet);
+    @include grid-breakpoint-hide("tablet");
     .container {
-        @include grid-row(empty);
+        @include grid-row(false);
     }
-    background: theme-color(dark);
+    background: theme-color("dark");
     color: #fff;
     padding: 15px 0;
 }
@@ -118,8 +118,8 @@ h2.docs-title {
         display: inline-block;
         padding: 10px 0 30px 0;
         margin: -1px 0 0 0;
-        border-top: 4px solid theme-color(ocean);
-        color: theme-color(dark);
+        border-top: 4px solid theme-color("ocean");
+        color: theme-color("dark");
     }
     hr {
         background: none;
@@ -165,7 +165,7 @@ pre.box-code{
         font-size:13px;
 
         a{
-            color:theme-color(ocean);
+            color:theme-color("ocean");
             font-size:inherit;
         }
     }
@@ -182,7 +182,7 @@ pre.box-code{
         font-size: 18px;
         .name{
             font-size: inherit;
-            color: theme-color(grey);
+            color: theme-color("gray");
             cursor: default;
         }
     }
@@ -276,8 +276,8 @@ pre.box-code{
                 // @include theme(silver,note);
             }
             @include grid-col(1, 3);
-            @include grid-col-breakpoint(phone, 1, 1);
-            @include grid-col-breakpoint(tablet, 1, 1);
+            @include grid-col-breakpoint("phone", 1, 1);
+            @include grid-col-breakpoint("tablet", 1, 1);
             .btn,.note {
                 margin-bottom: $grid-gutter;
             }
@@ -287,8 +287,8 @@ pre.box-code{
         }
         .col {
             @include grid-col(1, 3, 0);
-            @include grid-col-breakpoint(phone, 1, 2);
-            @include grid-col-breakpoint(tablet, 1, 2);
+            @include grid-col-breakpoint("phone", 1, 2);
+            @include grid-col-breakpoint("tablet", 1, 2);
         }
     }
 }
@@ -308,8 +308,8 @@ pre.box-code{
     }
     .thumb {
         @include grid-col(1, 8);
-        @include grid-col-breakpoint(phone, 1, 2);
-        @include grid-col-breakpoint(tablet, 1, 4);
+        @include grid-col-breakpoint("phone", 1, 2);
+        @include grid-col-breakpoint("tablet", 1, 4);
         img {
             width: 100%;
         }
@@ -340,8 +340,8 @@ pre.box-code{
 
 .grid{
     .grid-row{
-        background-color: theme-color(silver,45%);
-        color: theme-color(silver,10%);
+        background-color: theme-color("silver",45%);
+        color: theme-color("silver",10%);
         .info{
             @include grid-col(12);
         }
@@ -357,7 +357,7 @@ footer {
         @include grid-row();
         @include grid-col(12);
     }
-    background: theme-color(dark);
+    background: theme-color("dark");
     color: #fff;
     padding: 15px 0;
 
@@ -367,13 +367,13 @@ footer {
             font-size:30px;
             margin-right:20px;
             color:#fff;
-            @include grid-breakpoint(phone) {
+            @include grid-breakpoint("phone") {
                 margin-right:10px;
             }
         }
     }
     .link,.me{
-        color:theme-color(ocean,20%);
+        color:theme-color("ocean",20%);
 
     }
     .me{
@@ -382,7 +382,7 @@ footer {
     .link{
         margin:0 20px;
         font-weight:600;
-        @include grid-breakpoint(phone) {
+        @include grid-breakpoint("phone") {
             margin:0 8px;
         }
     }

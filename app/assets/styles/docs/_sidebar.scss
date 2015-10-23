@@ -24,7 +24,7 @@
 			}
 			.title {
 				display: block;
-				color: transparentize(theme-color(dark), 0.3);
+				color: transparentize(theme-color("dark"), 0.3);
 				font-weight: 600;
 				padding: 2px 0;
 				font-size:17px;
@@ -44,14 +44,14 @@
 				list-style: none;
 				.item {
 					.link {
-						color: transparentize(theme-color(dark), 0.7);
+						color: transparentize(theme-color("dark"), 0.7);
 						font-weight: 600;
 						padding-left: $grid-gutter / 4;
 						font-size: 14px;
 						padding: 2px 10px;
 						font-size: 13px;
 						&:hover {
-							color: theme-color(ocean);
+							color: theme-color("ocean");
 						}
 					}
 				}

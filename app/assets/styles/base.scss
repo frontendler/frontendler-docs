@@ -107,7 +107,7 @@ textarea {
 
 input:focus,
 textarea:focus {
-	border-color: theme-color(ocean);
+	border-color: theme-color("ocean");
 }
 
 input[type="file"],
@@ -122,11 +122,11 @@ label {
 
 
 body {
-	color: theme-color(grey);
+	color: theme-color("gray");
 }
 
 h1,h2,h3,h4,h5,h6 {
-	color: theme-color(dark);
+	color: theme-color("dark");
 	font-weight: normal;
 }
 .btn {
@@ -134,12 +134,12 @@ h1,h2,h3,h4,h5,h6 {
 	font-weight: 600;
 	font-size: 14px;
 	&.documentation{
-		background-color: theme-color(ocean);
-		color: theme-color(ocean,20%);
+		background-color: theme-color("ocean");
+		color: theme-color("ocean",20%);
 	}
 	&.github{
-		background-color: theme-color(blue);
-		color: theme-color(blue,20%);
+		background-color: theme-color("blue");
+		color: theme-color("blue",20%);
 	}
 }
 .note{

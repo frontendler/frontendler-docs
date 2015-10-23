@@ -86,7 +86,7 @@ pre[class*="language-"] {
 .token.constant,
 .token.symbol,
 .token.deleted {
-	color: theme-color(orange);
+	color: theme-color("orange");
 }
 
 .token.selector,
@@ -110,11 +110,11 @@ pre[class*="language-"] {
 .token.atrule,
 .token.attr-value,
 .token.keyword {
-	color: theme-color(silver);
+	color: theme-color("silver");
 }
 
 .token.function {
-	color: theme-color(orange);
+	color: theme-color("orange");
 }
 
 .token.regex,

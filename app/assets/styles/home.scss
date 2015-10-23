@@ -34,7 +34,7 @@
 
 @-webkit-keyframes showcanvas {
     from {
-        background-color: theme-color(dark);
+        background-color: theme-color("dark");
     }
 
     to {
@@ -44,7 +44,7 @@
 
 .no-canvas {
     header {
-        background: theme-color(dark);
+        background: theme-color("dark");
     }
 }
 
@@ -59,13 +59,13 @@
 header {
     @extend %clearfix;
     position: relative;
-    background: theme-color(dark);
+    background: theme-color("dark");
 
     .pg-canvas {
         position: absolute;
         top: 0;
         left: 0;
-        background: theme-color(dark);
+        background: theme-color("dark");
         z-index: -1;
     }
 
@@ -175,13 +175,13 @@ h3 {
     margin-right: 10px;
 
     .documentation {
-        background-color: theme-color(ocean);
-        color: theme-color(ocean,20%);
+        background-color: theme-color("ocean");
+        color: theme-color("ocean",20%);
     }
 
     .github {
-        background-color: theme-color(blue);
-        color: theme-color(blue,20%);
+        background-color: theme-color("blue");
+        color: theme-color("blue",20%);
     }
 }
 
@@ -249,7 +249,7 @@ footer {
         @include grid-row();
         @include grid-col(12);
     }
-    background: theme-color(dark);
+    background: theme-color("dark");
     color: #fff;
     padding: 15px 0;
 
@@ -268,7 +268,7 @@ footer {
 
     .link,
     .me {
-        color: theme-color(ocean,20%);
+        color: theme-color("ocean",20%);
     }
 
     .me {
@@ -280,12 +280,12 @@ footer {
         margin: 0 20px;
         font-weight: 600;
 
-        @include grid-breakpoint(phone) {
+        @include grid-breakpoint("phone") {
             margin: 0 8px;
         }
 
         &:hover {
-            color: theme-color(ocean,10%);
+            color: theme-color("ocean",10%);
         }
     }
 }

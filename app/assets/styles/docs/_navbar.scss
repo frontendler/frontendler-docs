@@ -15,15 +15,15 @@
 				.item {
 					float: left;
 					.link {
-						color: theme-color(ocean,20%);
+						color: theme-color("ocean",20%);
 						//color: #b3e5ef;
 						cursor: pointer;
 						padding: 10px 20px 10px 0;
 						&:hover {
-							color: theme-color(ocean,10%);
+							color: theme-color("ocean",10%);
 						}
 						&.selected{
-							color: theme-color(ocean,10%);
+							color: theme-color("ocean",10%);
 							font-weight: bold;
 						}
 					}
