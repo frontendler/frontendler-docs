@@ -2,7 +2,7 @@
 //  SIDEBAR
 //------------------------------------------------------
 .docs-sidebar {
-	@include grid-col(2, 12);
+	@include grid-col(3, 12);
 	@include grid-breakpoint-hide(tablet);
 	@include grid-breakpoint-hide(phone);
 	vertical-align: top;

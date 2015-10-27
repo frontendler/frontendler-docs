@@ -87,7 +87,7 @@
 //  CONTENT
 //------------------------------------------------------
 .docs-content {
-    @include grid-col(10, 12, 0);
+    @include grid-col(9, 12, false);
     @include grid-col-breakpoint("phone", 12, 12);
     @include grid-col-breakpoint("tablet", 12, 12);
     float: left;
