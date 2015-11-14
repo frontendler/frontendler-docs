@@ -6,6 +6,7 @@ $font-family-logo: "Grand Hotel";
 //-----------------------------------------------------
 // GRID
 //-----------------------------------------------------
+$grid-gutter-outside:0;
 $grid-breakpoints:(
 	"small":   100% max 640px,
 	"medium":  100% min 641px max 1024px,

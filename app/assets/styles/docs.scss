@@ -10,20 +10,19 @@
 //------------------------------------------------------
 @include reset();
 
-
 //------------------------------------------------------
 //GLOBAL
 //------------------------------------------------------
 
+a {
+    transition: color $animation-duration;
+}
 
 //------------------------------------------------------
 //  MAIN
 //------------------------------------------------------
 .docs-main {
-    @include grid-row(false);
-
-    // background: #ecf0f1;
-    background: #f8f9fb;
+    @include grid-row();
 }
 
 //------------------------------------------------------
@@ -56,6 +55,7 @@
     .search {
         border-bottom: 1px solid color("silver",10%);
         background: white;
+        display: none;
         input {
             border: none;
             display: block;
@@ -66,15 +66,16 @@
     }
     .container {
         @include grid-column(12,12);
-        padding-top: 10px;
+        padding-top: 20px;
     }
     .tree {
-        @include grid-column(3, 12, 0);
+        @include grid-column(3, 12, false);
         width: 100%;
         padding-top: 10px;
         .group {
             width: 100%;
-            border-bottom:1px solid color("silver",10%);
+            border-bottom: 1px solid color("silver",10%);
+
             // padding-bottom:10px;
             margin-bottom: 10px;
             &.open {
@@ -91,12 +92,15 @@
                 padding: 2px 0;
                 font-size: 15px;
                 &:after {
+                    transition: opacity $animation-duration;
                     border-radius: 3px;
                     margin-left: 5px;
+                    opacity:0;
+                    content: "-";
                 }
                 &:hover {
                     &:after {
-                        content: "-";
+                        opacity:1;
                     }
                 }
             }
@@ -107,8 +111,6 @@
                 .item {
                     .link {
                         color: color("dark",25%);
-
-                        // font-weight: 600;
                         padding-left: $grid-gutter / 4;
                         font-size: 14px;
                         padding: 2px 0;
@@ -135,10 +137,11 @@
         @include grid-row(false);
         .logo {
             @include grid-column(12, 12);
+
             // animation: fade-in 1s 0.3s both;
             h1 {
                 display: inline;
-                color: color("dark");
+                color: color("gray");
                 font-family: $font-family-logo;
                 font-size: 35px;
             }
@@ -175,10 +178,11 @@
     background-color: #f8f9fb;
     color: #a4d6e5;
     border-bottom: 1px solid #e4e8eb;
-    display: none;
+    display: block;
     .container {
         @include grid-row(false);
-        font-weight: 600;
+
+        // font-weight: 600;
         .menu {
             @include grid-column(8, 12);
             .itens {
@@ -187,17 +191,16 @@
                 .item {
                     float: left;
                     .link {
-                        color: color("ocean",20%);
+                        color: color("dark",10%);
 
                         //color: #b3e5ef;
                         cursor: pointer;
                         padding: 10px 20px 10px 0;
                         &:hover {
-                            color: color("ocean",10%);
+                            color: color("dark",20%);
                         }
                         &.selected {
-                            color: color("ocean",10%);
-                            font-weight: bold;
+                            color: color("ocean");
                         }
                     }
                 }
@@ -231,6 +234,7 @@ h2.docs-title {
         margin: -1px 0 0;
         border-top: 4px solid color("ocean");
         color: color("gray");
+        font-size: 25px;
         font-weight: normal;
     }
     hr {
@@ -268,12 +272,13 @@ pre {
 code {
     white-space: pre-wrap;
     font-size: $font-size-text - 2px;
-    font-weight: 600;
+
+    // font-weight: 600;
 }
 pre.box-code {
     code {
         display: block;
-        font-family: 'Source Sans Pro';
+        font-family: 'Open Sans';
         font-size: 13px;
         letter-spacing: 0.035em;
         white-space: pre-line;
@@ -283,7 +288,6 @@ pre.box-code {
         background: #fff;
         color: #606c78;
         border-radius: 5px;
-
         a {
             color: color("ocean");
             font-size: inherit;
@@ -316,16 +320,13 @@ pre.box-code {
 //  FOOTER
 //------------------------------------------------------
 footer {
-
     color: #fff;
     padding: 10px 0;
-    border-top:1px solid color("silver",10%);
-
-    p{
-        padding:0;
-        margin:0;
+    border-top: 1px solid color("silver",10%);
+    p {
+        padding: 0;
+        margin: 0;
     }
-
     .container {
         @include grid-row();
         @include grid-column(12);
@@ -335,7 +336,7 @@ footer {
             font-family: $font-family-logo;
             font-size: 30px;
             margin-right: 20px;
-            color: color("dark");
+            color: color("gray");
             @include grid-breakpoint("small") {
                 margin-right: 10px;
             }
@@ -350,6 +351,7 @@ footer {
     }
     .link {
         margin: 0 20px;
+
         // font-weight: 600;
         @include grid-breakpoint("small") {
             margin: 0 8px;
@@ -387,6 +389,7 @@ footer {
         padding-bottom: 20px;
         border-radius: 3px;
         margin-top: 5px;
+
         // font-weight: 600;
         opacity: 0;
         animation: exemplegrid $animation-duration*3;
