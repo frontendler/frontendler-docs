@@ -4,26 +4,33 @@
 @import "frontendler/core";
 @import "libs/prism";
 @import "docs/settings";
-@import "docs/top";
-@import "docs/navbar";
-@import "docs/sidebar";
 
 //------------------------------------------------------
 //RESET
 //------------------------------------------------------
 @include reset();
 
+
+//------------------------------------------------------
+//GLOBAL
+//------------------------------------------------------
+
+
 //------------------------------------------------------
 //  MAIN
 //------------------------------------------------------
 .docs-main {
     @include grid-row(false);
-    background: #ecf0f1;
+
+    // background: #ecf0f1;
+    background: #f8f9fb;
 }
+
 //------------------------------------------------------
 //  CONTENT
 //------------------------------------------------------
 .docs-content {
+    @include grid-column(13, 16);
     @include grid-column-breakpoint("small", 12, 12);
     @include grid-column-breakpoint("medium", 12, 12);
     @include grid-column-breakpoint("xlarge", 10, 12);
@@ -31,8 +38,174 @@
     float: left;
     vertical-align: top;
     padding-bottom: $grid-gutter;
-    background:#fff;
+    padding-top: $grid-gutter;
+    border-left: 1px solid color("silver",10%);
+    background: #fff;
 }
+
+//------------------------------------------------------
+//  SIDEBAR
+//------------------------------------------------------
+.docs-sidebar {
+    @include grid-column(3,16,false);
+    @include grid-breakpoint-hide("small");
+    @include grid-breakpoint-hide("medium");
+    @include grid-column-breakpoint("xlarge", 2, 12,false);
+    @include grid-column-breakpoint("xxlarge", 2, 12,false);
+    padding-bottom: $grid-gutter / 2;
+    .search {
+        border-bottom: 1px solid color("silver",10%);
+        background: white;
+        input {
+            border: none;
+            display: block;
+            width: 100%;
+            padding: 15px 18px;
+            outline: none;
+        }
+    }
+    .container {
+        @include grid-column(12,12);
+        padding-top: 10px;
+    }
+    .tree {
+        @include grid-column(3, 12, 0);
+        width: 100%;
+        padding-top: 10px;
+        .group {
+            width: 100%;
+            border-bottom:1px solid color("silver",10%);
+            // padding-bottom:10px;
+            margin-bottom: 10px;
+            &.open {
+                .title,
+                .title:hover {
+                    &:after {
+                        content: "+";
+                    }
+                }
+            }
+            .title {
+                display: block;
+                color: transparentize(color("dark"), 0.3);
+                padding: 2px 0;
+                font-size: 15px;
+                &:after {
+                    border-radius: 3px;
+                    margin-left: 5px;
+                }
+                &:hover {
+                    &:after {
+                        content: "-";
+                    }
+                }
+            }
+            .itens {
+                display: block;
+                margin-bottom: $grid-gutter/2;
+                list-style: none;
+                .item {
+                    .link {
+                        color: color("dark",25%);
+
+                        // font-weight: 600;
+                        padding-left: $grid-gutter / 4;
+                        font-size: 14px;
+                        padding: 2px 0;
+                        font-size: 13px;
+                        &:hover {
+                            color: color("ocean");
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+//------------------------------------------------------
+//  TOP
+//------------------------------------------------------
+.docs-top {
+
+    // background-color: color("dark");
+    padding: 10px 0;
+    border-bottom: 1px solid color("silver",10%);
+    .container {
+        @include grid-row(false);
+        .logo {
+            @include grid-column(12, 12);
+            // animation: fade-in 1s 0.3s both;
+            h1 {
+                display: inline;
+                color: color("dark");
+                font-family: $font-family-logo;
+                font-size: 35px;
+            }
+            small {
+                font-family: $font-family;
+                font-size: 15px;
+                margin-left: 10px;
+                font-weight: 600;
+                color: color("ocean");
+            }
+        }
+        .bt-menu {
+            display: none;
+
+            // @include grid-breakpoint-hide("desktop");
+            // @include grid-breakpoint-hide("xlarge");
+            border-radius: 3px;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: color("dark",45%);
+            color: #72797f;
+            font-weight: 600;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+    }
+}
+
+//------------------------------------------------------
+//  NAVBAR
+//------------------------------------------------------
+.docs-navbar {
+    background-color: #f8f9fb;
+    color: #a4d6e5;
+    border-bottom: 1px solid #e4e8eb;
+    display: none;
+    .container {
+        @include grid-row(false);
+        font-weight: 600;
+        .menu {
+            @include grid-column(8, 12);
+            .itens {
+                margin: 0;
+                list-style: none;
+                .item {
+                    float: left;
+                    .link {
+                        color: color("ocean",20%);
+
+                        //color: #b3e5ef;
+                        cursor: pointer;
+                        padding: 10px 20px 10px 0;
+                        &:hover {
+                            color: color("ocean",10%);
+                        }
+                        &.selected {
+                            color: color("ocean",10%);
+                            font-weight: bold;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
 //------------------------------------------------------
 //  BOTTOM
 //------------------------------------------------------
@@ -51,13 +224,14 @@
 //------------------------------------------------------
 h2.docs-title {
     @include grid-column(12, 12);
-    margin: $grid-gutter / 2 0 0 0;
+    margin: 0;
     span {
         display: inline-block;
-        padding: 10px 0 30px 0;
-        margin: -1px 0 0 0;
+        padding: 10px 0 30px;
+        margin: -1px 0 0;
         border-top: 4px solid color("ocean");
-        color: color("dark");
+        color: color("gray");
+        font-weight: normal;
     }
     hr {
         background: none;
@@ -67,19 +241,20 @@ h2.docs-title {
         border-top: 1px solid #ddd;
     }
 }
-h3.docs-subtitle{
+h3.docs-subtitle {
     display: block;
     font-size: 1.5em;
     margin-bottom: 10px;
     color: #00a7ca;
-    .name{
+    .name {
         font-size: inherit;
     }
 }
+
 //------------------------------------------------------
 //  ARTICLE
 //------------------------------------------------------
-article{
+article {
     margin-bottom: $grid-gutter * 2;
     display: block;
 }
@@ -87,34 +262,31 @@ article{
 //------------------------------------------------------
 //  BOX CODE
 //------------------------------------------------------
-
 pre {
-	white-space: nowrap;
+    white-space: nowrap;
 }
-
 code {
-	white-space: pre-wrap;
-	font-size: $font-size-text - 2px;
-	font-weight: 600;
+    white-space: pre-wrap;
+    font-size: $font-size-text - 2px;
+    font-weight: 600;
 }
-
-pre.box-code{
+pre.box-code {
     code {
-        border-radius: 5px;
+        display: block;
         font-family: 'Source Sans Pro';
+        font-size: 13px;
         letter-spacing: 0.035em;
         white-space: pre-line;
         padding: 10px;
         overflow: auto;
-        border: 1px solid #dddddd;
-        background:#fff;
-        color:#606c78;
-        display:block;
-        font-size:13px;
+        border: 1px solid #ddd;
+        background: #fff;
+        color: #606c78;
+        border-radius: 5px;
 
-        a{
-            color:color("ocean");
-            font-size:inherit;
+        a {
+            color: color("ocean");
+            font-size: inherit;
         }
     }
 }
@@ -122,20 +294,20 @@ pre.box-code{
 //------------------------------------------------------
 //  COMMAND BLOCK
 //------------------------------------------------------
-
-.command-block{
+.command-block {
     @include grid-column(12);
-    .command-name{
-        font-weight: 600;
+    .command-name {
+
+        // font-weight: 600;
         font-size: 18px;
-        .name{
+        .name {
             font-size: inherit;
             color: color("gray");
             cursor: default;
         }
     }
-    .box-code{
-        margin:$grid-gutter/2 0;
+    .box-code {
+        margin: $grid-gutter/2 0;
         margin-bottom: $grid-gutter;
     }
 }
@@ -143,84 +315,92 @@ pre.box-code{
 //------------------------------------------------------
 //  FOOTER
 //------------------------------------------------------
-
 footer {
+
+    color: #fff;
+    padding: 10px 0;
+    border-top:1px solid color("silver",10%);
+
+    p{
+        padding:0;
+        margin:0;
+    }
+
     .container {
         @include grid-row();
         @include grid-column(12);
     }
-    background: color("dark");
-    color: #fff;
-    padding: 15px 0;
-
     .logo {
-        .url{
-            font-family:$font-family-logo;
-            font-size:30px;
-            margin-right:20px;
-            color:#fff;
+        .url {
+            font-family: $font-family-logo;
+            font-size: 30px;
+            margin-right: 20px;
+            color: color("dark");
             @include grid-breakpoint("small") {
-                margin-right:10px;
+                margin-right: 10px;
             }
         }
     }
-    .link,.me{
-        color:color("ocean",20%);
-
+    .link,
+    .me {
+        color: color("ocean");
     }
-    .me{
-        margin-right:20px;
+    .me {
+        margin-right: 20px;
     }
-    .link{
-        margin:0 20px;
-        font-weight:600;
+    .link {
+        margin: 0 20px;
+        // font-weight: 600;
         @include grid-breakpoint("small") {
-            margin:0 8px;
+            margin: 0 8px;
         }
     }
-
 }
-
 
 //------------------------------------------------------
 //  GRID ANIMATION
 //------------------------------------------------------
-
 @-webkit-keyframes exemplegrid {
-    from {opacity: 0;transform:translateY(30px);}
-    to {opacity: 1;transform:translateY(0px);}
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
 }
-
-.exemple-grid{
+.exemple-grid {
     @include grid-column(12);
-    margin-bottom:$grid-gutter;
-    opacity:0;
+    margin-bottom: $grid-gutter;
+    opacity: 0;
     animation: exemplegrid $animation-duration*3;
     animation-delay: 0.5s;
     animation-fill-mode: forwards;
-    .viewport{
+    color: color("gray");
+    .viewport {
         @include grid-column(12);
-        border:1px dashed color("silver",20%);;
-        min-height:100px;
-        color:color("ocean");
+        border: 1px dashed color("silver",20%);
+        min-height: 100px;
+        color: color("ocean");
         padding-top: 10px;
-        padding-bottom:20px;
-        border-radius:3px;
-        margin-top:5px;
-        font-weight:600;
-        opacity:0;
+        padding-bottom: 20px;
+        border-radius: 3px;
+        margin-top: 5px;
+        // font-weight: 600;
+        opacity: 0;
         animation: exemplegrid $animation-duration*3;
         animation-delay: 1.5s;
         animation-fill-mode: forwards;
-        .row{
+        .row {
             @include grid-column(12,12,false);
-            border:1px solid color("ocean",20%);
-            height:100%;
-            margin-top:5px;
-            padding-top:20px;
-            padding-bottom:20px;
-            border-radius:3px;
-            opacity:0;
+            border: 1px solid color("ocean",20%);
+            height: 100%;
+            margin-top: 5px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            border-radius: 3px;
+            opacity: 0;
             animation: exemplegrid $animation-duration*3;
             animation-delay: 2.5s;
             animation-fill-mode: forwards;
@@ -228,24 +408,23 @@ footer {
                 @include grid-column(3,12);
                 @include grid-column-breakpoint("small",12,12);
                 @include grid-column-breakpoint("medium",6,12);
-                @include grid-breakpoint("small","medium")
-                {
-                    margin-bottom:$grid-gutter/4;
-                    margin-top:$grid-gutter/4;
+                @include grid-breakpoint("small", "medium") {
+                    margin-bottom: $grid-gutter/4;
+                    margin-top: $grid-gutter/4;
                 }
-                height:100%;
-                opacity:0;
+                height: 100%;
+                opacity: 0;
                 animation: exemplegrid $animation-duration*3;
                 animation-delay: 3.5s;
                 animation-fill-mode: forwards;
-                .line{
-                    border:1px solid color("ocean");
-                    height:100%;
-                    border-radius:3px;
-                    border-radius:3px;
-                    display:block;
-                    text-align:center;
-                    padding:10px 0;
+                .line {
+                    border: 1px solid color("ocean");
+                    height: 100%;
+                    border-radius: 3px;
+                    border-radius: 3px;
+                    display: block;
+                    text-align: center;
+                    padding: 10px 0;
                 }
             }
         }
