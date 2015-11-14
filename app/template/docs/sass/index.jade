@@ -4,83 +4,83 @@ block link
 block sidebar
 	include /_includes/_docs_sidebar_core
 block content
-	article.grid
-		+title("Grid")
-		div.container
-
-			div.exemple-grid
-				|document
-				div.viewport
-					|row
-					div.row
-						div.col
-							div.line
-								|column
-						div.col
-							div.line
-								|column
-						div.col
-							div.line
-								|column
-						div.col
-							div.line
-								|column
-			+command("grid-gutter","scss","grid-gutter").
-				$grid-gutter: 40px;
-			+command("grid-gutter-outside","scss","grid-gutter-outside").
-				$grid-gutter-outer: 5px;
-			+command("grid-breakpoints","scss","grid-breakpoints").
-				$grid-breakpoints:(
-					"small":   100% max 640px,
-					"medium":  100% min 641px max 1024px,
-					"large":   1024px min 1025px max 1440px,
-					"xlarge":  1440px min 1441px max 1920px,
-					"xxlarge": 1920px min 1921px
-				) !default;
-			+command("grid-row","scss","grid-row").
-				@include grid-row($gutter: $grid-gutter-outside, $breakpoints: $grid-breakpoints);
-			+command("grid-column","scss","grid-column").
-				@include grid-column($column, $columns: 12, $gutter: $grid-gutter);
-			+command("grid-column-breakpoint","scss","grid-column-breakpoint").
-				@include grid-column-breakpoint($device, $column, $columns: 12, $gutter: false)
-				or
-				@include grid-column-breakpoint($device, $column, $columns: 12, $gutter: false){
-					...
-				};
-			+command("grid-column-breakpoint-custom","scss","grid-column-breakpoint-custom").
-				@include grid-column-breakpoint-custom($min-width, $max-width, $column, $columns: 12, $gutter: false)
-				or
-				@include grid-column-breakpoint-custom($min-width, $max-width, $column, $columns: 12, $gutter: false){
-					...
-				};
-			+command("grid-breakpoint","scss","grid-breakpoint").
-				@include grid-breakpoint($devices...){
-					...
-				};
-			+command("grid-breakpoint-custom","scss","grid-breakpoint-custom").
-				@include grid-breakpoint-custom($min-width, $max-width){
-					...
-				};
-			+command("grid-breakpoint-hide","scss","grid-breakpoint-hide").
-				@include grid-breakpoint-hide($devices...);
-			+command("grid-breakpoint-show","scss","grid-breakpoint-show").
-				@include grid-breakpoint-show($devices...);
-	article.theme
-		+title("Color")
-		div.container
-			+command("colors","scss","colors").
-				$colors:(
-					ocean:   #00a7ca,
-					blue:    #0075d3,
-					purple:  #8244a7,
-					pink:    #dd318a,
-					green:   #71be48,
-					yellow:  #f59d37,
-					orange:  #f75925,
-					red:     #dd202b,
-					dark:    #1c2731,
-					gray:    #606c78,
-					silver:  #939fac
-				);
-			+command("color","scss","color").
-				color ($color-name, $amount:50%);
+	div.content
+		article.grid
+			+title("Grid")
+			div.container
+				div.exemple-grid
+					|document
+					div.viewport
+						|row
+						div.row
+							div.col
+								div.line
+									|column
+							div.col
+								div.line
+									|column
+							div.col
+								div.line
+									|column
+							div.col
+								div.line
+									|column
+				+command("grid-gutter","scss","grid-gutter").
+					$grid-gutter: 40px;
+				+command("grid-gutter-outside","scss","grid-gutter-outside").
+					$grid-gutter-outer: 5px;
+				+command("grid-breakpoints","scss","grid-breakpoints").
+					$grid-breakpoints:(
+						"small":   100% max 640px,
+						"medium":  100% min 641px max 1024px,
+						"large":   1024px min 1025px max 1440px,
+						"xlarge":  1440px min 1441px max 1920px,
+						"xxlarge": 1920px min 1921px
+					) !default;
+				+command("grid-row","scss","grid-row").
+					@include grid-row($gutter: $grid-gutter-outside, $breakpoints: $grid-breakpoints);
+				+command("grid-column","scss","grid-column").
+					@include grid-column($column, $columns: 12, $gutter: $grid-gutter);
+				+command("grid-column-breakpoint","scss","grid-column-breakpoint").
+					@include grid-column-breakpoint($device, $column, $columns: 12, $gutter: false)
+					or
+					@include grid-column-breakpoint($device, $column, $columns: 12, $gutter: false){
+						...
+					};
+				+command("grid-column-breakpoint-custom","scss","grid-column-breakpoint-custom").
+					@include grid-column-breakpoint-custom($min-width, $max-width, $column, $columns: 12, $gutter: false)
+					or
+					@include grid-column-breakpoint-custom($min-width, $max-width, $column, $columns: 12, $gutter: false){
+						...
+					};
+				+command("grid-breakpoint","scss","grid-breakpoint").
+					@include grid-breakpoint($devices...){
+						...
+					};
+				+command("grid-breakpoint-custom","scss","grid-breakpoint-custom").
+					@include grid-breakpoint-custom($min-width, $max-width){
+						...
+					};
+				+command("grid-breakpoint-hide","scss","grid-breakpoint-hide").
+					@include grid-breakpoint-hide($devices...);
+				+command("grid-breakpoint-show","scss","grid-breakpoint-show").
+					@include grid-breakpoint-show($devices...);
+		article.theme
+			+title("Color")
+			div.container
+				+command("colors","scss","colors").
+					$colors:(
+						ocean:   #00a7ca,
+						blue:    #0075d3,
+						purple:  #8244a7,
+						pink:    #dd318a,
+						green:   #71be48,
+						yellow:  #f59d37,
+						orange:  #f75925,
+						red:     #dd202b,
+						dark:    #1c2731,
+						gray:    #606c78,
+						silver:  #939fac
+					);
+				+command("color","scss","color").
+					color ($color-name, $amount:50%);
