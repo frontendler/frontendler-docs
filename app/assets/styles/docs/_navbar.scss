@@ -2,28 +2,28 @@
 //  NAVBAR
 //------------------------------------------------------
 .docs-navbar {
-	background-color: theme-color(ocean);
+	background-color: color("ocean");
 	color: #a4d6e5;
 	.container {
 		@include grid-row(false);
 		font-weight: 600;
 		.menu {
-			@include grid-col(8, 12);
+			@include grid-column(8, 12);
 			.itens {
 				margin: 0;
 				list-style: none;
 				.item {
 					float: left;
 					.link {
-						color: theme-color("ocean",20%);
+						color: color("ocean",20%);
 						//color: #b3e5ef;
 						cursor: pointer;
 						padding: 10px 20px 10px 0;
 						&:hover {
-							color: theme-color("ocean",10%);
+							color: color("ocean",10%);
 						}
 						&.selected{
-							color: theme-color("ocean",10%);
+							color: color("ocean",10%);
 							font-weight: bold;
 						}
 					}

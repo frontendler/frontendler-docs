@@ -2,12 +2,12 @@
 //  TOP
 //------------------------------------------------------
 .docs-top {
-	background-color: theme-color(dark);
+	background-color: color("dark");
 	padding: 3px 0;
 	.container {
 		@include grid-row(false);
 		.logo {
-			@include grid-col(12, 12);
+			@include grid-column(12, 12);
 			h1 {
 				display: inline;
 				color: #fff;
@@ -19,18 +19,18 @@
 				font-size: 15px;
 				margin-left: 10px;
 				font-weight: 600;
-				color: theme-color("ocean",20%);
+				color: color("ocean",20%);
 			}
 		}
 		.bt-menu{
 			display:none;
-			// @include grid-breakpoint-hide(desktop);
-			// @include grid-breakpoint-hide(desktop-large);
+			// @include grid-breakpoint-hide("desktop");
+			// @include grid-breakpoint-hide("xlarge");
 			border-radius:3px;
 			position: absolute;
 			top:10px;
 			right:10px;
-			background: theme-color("dark",45%);
+			background: color("dark",45%);
 			color: #72797f;
 			font-weight: 600;
 			padding:5px 10px;

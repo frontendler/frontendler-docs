@@ -2,12 +2,14 @@
 // FONT
 //-----------------------------------------------------
 $font-family-logo: "Grand Hotel";
+
 //-----------------------------------------------------
 // GRID
 //-----------------------------------------------------
 $grid-breakpoints:(
-	phone: 100% max 480px,
-	tablet: 100% min 481px max 1023px,
-	desktop: 100% min 1024px max 1200px,
-	desktop-large: 100% min 1200px
+	"small":   100% max 640px,
+	"medium":  100% min 641px max 1200px,
+	"large":   1200px min 1201px max 1600px,
+	"xlarge":  1600px min 1601px max 1920px,
+	"xxlarge": 1920px min 1921px
 );

@@ -1,43 +1,33 @@
 //------------------------------------------------------
 // IMPORTS
 //------------------------------------------------------
-@import "frontendler/frontendler";
-@import "home/config";
+@import "frontendler/core";
+@import "home/settings";
+@import "home/animations";
+
+//------------------------------------------------------
+//RESET
+//------------------------------------------------------
+@include reset();
+
+//------------------------------------------------------
+//GLOBAL
+//------------------------------------------------------
+
+html{
+    color:color("dark");
+}
+
+p{
+    color:color("gray");
+}
 
 //------------------------------------------------------
 //HEADER
 //------------------------------------------------------
-@-webkit-keyframes headerstart {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0px);
-    }
-}
-@-webkit-keyframes headerbuttonstart {
-    from {
-        opacity: 0;
-        transform: translateX(-30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0px);
-    }
-}
-@-webkit-keyframes showcanvas {
-    from {
-        background-color: theme-color("dark");
-    }
-    to {
-        background-color: rgba(28, 39, 49, 0);
-    }
-}
 .no-canvas {
     header {
-        background: theme-color("dark");
+        background: color("dark");
     }
 }
 .canvas {
@@ -50,12 +40,12 @@
 header {
     @extend %clearfix;
     position: relative;
-    background: theme-color("dark");
+    background: color("dark");
     .pg-canvas {
         position: absolute;
         top: 0;
         left: 0;
-        background: theme-color("dark");
+        background: color("dark");
         z-index: -1;
     }
     .container {
@@ -67,7 +57,7 @@ header {
     h2,
     h3 {
         opacity: 0;
-        animation: headerstart $animation-speed*2;
+        animation: headerstart $animation-duration*2;
         animation-fill-mode: forwards;
     }
     h1 {
@@ -79,17 +69,27 @@ header {
     h3 {
         animation-delay: 0.6s;
     }
+
+
+    .btn{
+
+    }
     .documentation,
     .github {
         opacity: 0;
-        animation: headerbuttonstart $animation-speed*2;
+        animation: headerbuttonstart $animation-duration*2;
         animation-fill-mode: forwards;
+
     }
     .documentation {
         animation-delay: 1.5s;
+        background:color("ocean");
+        color:color("ocean",20%);
     }
     .github {
         animation-delay: 2s;
+        background:color("blue");
+        color:color("blue",20%);
     }
 }
 h1 {
@@ -104,7 +104,7 @@ h1 {
         font-size: 15px;
         margin-left: 20px;
         font-weight: normal;
-        @include grid-breakpoint(phone) {
+        @include grid-breakpoint("small") {
             display: block;
         }
     }
@@ -117,9 +117,8 @@ h3 {
     margin-top: 0;
     margin-bottom: 30px;
     color: #b0c3d4;
-    font-size: 25px;
 }
-@include grid-breakpoint(phone, tablet) {
+@include grid-breakpoint("small", "medium") {
     h1 {
         font-size: 70px;
         line-height: 40px;
@@ -132,11 +131,11 @@ h3 {
     }
 }
 .info {
-    @include grid-col(12, 12);
+    @include grid-column(12, 12);
 }
 .btn {
     border-radius: 3px;
-    transition: background-color $animation-speed, color $animation-speed;
+    transition: background-color $animation-duration, color $animation-duration;
     box-sizing: border-box;
     display: inline-block;
     padding: $grid-gutter/4 $grid-gutter/2;
@@ -146,12 +145,12 @@ h3 {
     margin: 0;
     margin-right: 10px;
     .documentation {
-        background-color: theme-color("ocean");
-        color: theme-color("ocean",20%);
+        background-color: color("ocean");
+        color: color("ocean",20%);
     }
     .github {
-        background-color: theme-color("blue");
-        color: theme-color("blue",20%);
+        background-color: color("blue");
+        color: color("blue",20%);
     }
 }
 .label {
@@ -175,16 +174,15 @@ h3 {
         @include grid-row;
     }
     .item {
-        @include grid-col(4);
-        @include grid-col-breakpoint(tablet-large,6);
-        @include grid-col-breakpoint(tablet,6);
-        @include grid-col-breakpoint(phone,12);
+        @include grid-column(4);
+        @include grid-column-breakpoint("small",12);
+        @include grid-column-breakpoint("medium",6);
         margin: $grid-gutter 0;
         img {
             width: 80%;
             display: block;
             margin: 0 auto;
-            @include grid-breakpoint(phone) {
+            @include grid-breakpoint("small") {
                 width: 80%;
             }
         }
@@ -197,10 +195,10 @@ h3 {
         p {
             height: 80px;
             margin-top: 10px;
-            @include grid-breakpoint(phone, tablet, tablet-large) {
+            @include grid-breakpoint("small", "medium", "large") {
                 text-align: center;
             }
-            @include grid-breakpoint(phone) {
+            @include grid-breakpoint("small") {
                 height: auto;
             }
         }
@@ -209,9 +207,9 @@ h3 {
 footer {
     .container {
         @include grid-row();
-        @include grid-col(12);
+        @include grid-column(12);
     }
-    background: theme-color("dark");
+    background: color("dark");
     color: #fff;
     padding: 15px 0;
     .logo {
@@ -220,27 +218,27 @@ footer {
             font-size: 30px;
             margin-right: 20px;
             color: #fff;
-            @include grid-breakpoint(phone) {
+            @include grid-breakpoint("small") {
                 margin-right: 10px;
             }
         }
     }
     .link,
     .me {
-        color: theme-color("ocean",20%);
+        color: color("ocean",20%);
     }
     .me {
         margin-right: 20px;
     }
     .link {
-        transition: color $animation-speed;
+        transition: color $animation-duration;
         margin: 0 20px;
         font-weight: 600;
-        @include grid-breakpoint("phone") {
+        @include grid-breakpoint("small") {
             margin: 0 8px;
         }
         &:hover {
-            color: theme-color("ocean",10%);
+            color: color("ocean",10%);
         }
     }
 }

@@ -1,80 +1,17 @@
 //------------------------------------------------------
 // IMPORTS
 //------------------------------------------------------
-@import "frontendler/frontendler";
+@import "frontendler/core";
 @import "libs/prism";
-@import "docs/config";
+@import "docs/settings";
 @import "docs/top";
 @import "docs/navbar";
 @import "docs/sidebar";
 
-
-
-@-webkit-keyframes exemplegrid {
-    from {opacity: 0;transform:translateY(30px);}
-    to {opacity: 1;transform:translateY(0px);}
-}
-
-.exemple-grid{
-    @include grid-col(12);
-    margin-bottom:$grid-gutter;
-    opacity:0;
-    animation: exemplegrid $animation-speed*3;
-    animation-delay: 0.5s;
-    animation-fill-mode: forwards;
-    .viewport{
-        @include grid-col(12);
-        border:1px dashed theme-color("silver",20%);;
-        min-height:100px;
-        color:theme-color("ocean");
-        padding-top: 10px;
-        padding-bottom:20px;
-        border-radius:3px;
-        margin-top:5px;
-        font-weight:600;
-        opacity:0;
-        animation: exemplegrid $animation-speed*3;
-        animation-delay: 1.5s;
-        animation-fill-mode: forwards;
-        .row{
-            @include grid-col(12,12,false);
-            border:1px solid theme-color("ocean",20%);
-            height:100%;
-            margin-top:5px;
-            padding-top:20px;
-            padding-bottom:20px;
-            border-radius:3px;
-            opacity:0;
-            animation: exemplegrid $animation-speed*3;
-            animation-delay: 2.5s;
-            animation-fill-mode: forwards;
-            .col {
-                @include grid-col(3,12);
-                @include grid-col-breakpoint("phone",12,12);
-                @include grid-col-breakpoint("tablet",6,12);
-                @include grid-breakpoint("phone","tablet")
-                {
-                    margin-bottom:$grid-gutter/4;
-                    margin-top:$grid-gutter/4;
-                }
-                height:100%;
-                opacity:0;
-                animation: exemplegrid $animation-speed*3;
-                animation-delay: 3.5s;
-                animation-fill-mode: forwards;
-                .line{
-                    border:1px solid theme-color("ocean");
-                    height:100%;
-                    border-radius:3px;
-                    border-radius:3px;
-                    display:block;
-                    text-align:center;
-                    padding:10px 0;
-                }
-            }
-        }
-    }
-}
+//------------------------------------------------------
+//RESET
+//------------------------------------------------------
+@include reset();
 
 //------------------------------------------------------
 //  MAIN
@@ -87,9 +24,10 @@
 //  CONTENT
 //------------------------------------------------------
 .docs-content {
-    @include grid-col(9, 12, false);
-    @include grid-col-breakpoint("phone", 12, 12);
-    @include grid-col-breakpoint("tablet", 12, 12);
+    @include grid-column-breakpoint("small", 12, 12);
+    @include grid-column-breakpoint("medium", 12, 12);
+    @include grid-column-breakpoint("xlarge", 10, 12);
+    @include grid-column-breakpoint("xxlarge", 10, 12);
     float: left;
     vertical-align: top;
     padding-bottom: $grid-gutter;
@@ -99,11 +37,11 @@
 //  BOTTOM
 //------------------------------------------------------
 .docs-bottom {
-    @include grid-breakpoint-hide("tablet");
+    @include grid-breakpoint-hide("medium");
     .container {
         @include grid-row(false);
     }
-    background: theme-color("dark");
+    background: color("dark");
     color: #fff;
     padding: 15px 0;
 }
@@ -112,14 +50,14 @@
 //  TITLE
 //------------------------------------------------------
 h2.docs-title {
-    @include grid-col(12, 12);
+    @include grid-column(12, 12);
     margin: $grid-gutter / 2 0 0 0;
     span {
         display: inline-block;
         padding: 10px 0 30px 0;
         margin: -1px 0 0 0;
-        border-top: 4px solid theme-color("ocean");
-        color: theme-color("dark");
+        border-top: 4px solid color("ocean");
+        color: color("dark");
     }
     hr {
         background: none;
@@ -150,6 +88,16 @@ article{
 //  BOX CODE
 //------------------------------------------------------
 
+pre {
+	white-space: nowrap;
+}
+
+code {
+	white-space: pre-wrap;
+	font-size: $font-size-text - 2px;
+	font-weight: 600;
+}
+
 pre.box-code{
     code {
         border-radius: 5px;
@@ -165,7 +113,7 @@ pre.box-code{
         font-size:13px;
 
         a{
-            color:theme-color("ocean");
+            color:color("ocean");
             font-size:inherit;
         }
     }
@@ -176,13 +124,13 @@ pre.box-code{
 //------------------------------------------------------
 
 .command-block{
-    @include grid-col(12);
+    @include grid-column(12);
     .command-name{
         font-weight: 600;
         font-size: 18px;
         .name{
             font-size: inherit;
-            color: theme-color("gray");
+            color: color("gray");
             cursor: default;
         }
     }
@@ -191,173 +139,17 @@ pre.box-code{
         margin-bottom: $grid-gutter;
     }
 }
+
 //------------------------------------------------------
-//  BASE
+//  FOOTER
 //------------------------------------------------------
-.base{
-    .container{
-        @include grid-col(12);
-    }
-    .details{
-        @extend %clearfix;
-        margin-bottom: 40px;
-    }
-    .list{
-        .list-col{
-            @include grid-col(4,12,0);
-            ul{
-                list-style-position: inside;
-            }
-            ul.one{
-                list-style-type:circle;
-            }
-            ul.two{
-                list-style-type:square;
-            }
-            ul.tree{
-                list-style-type:disc;
-            }
-        }
-    }
-}
-//------------------------------------------------------
-//  UI
-//------------------------------------------------------
-.colors {
-    .container {
-        @include grid-col(12);
-    }
-    .color {
-        // @include theme-all(background);
-        border-radius:50%;
-        display: inline-block;
-        width: 15px;
-        height: 15px;
-        overflow: hidden;
-    }
-}
-
-.typo {
-    .container {
-        @extend %clearfix;
-        .p,.li,.h {
-            @include grid-col(6);
-        }
-        .h {
-            h1,h2,h3,h4,h5,h6 {
-                padding: 0;
-                margin: 0;
-                display: inline;
-            }
-        }
-    }
-}
-
-.blockquote {
-    .container {
-        @include grid-col(12);
-    }
-    .grupo {
-        @include grid-col(12);
-    }
-}
-
-.forms {
-    .grupo {
-        @include grid-col(12,12,0);
-        .form {
-            input{
-                // @include theme(red,input);
-                // @include theme(green,input);
-                // @include theme(yellow,input);
-            }
-            .note{
-                // @include theme(ocean,note);
-                // @include theme(silver,note);
-            }
-            @include grid-col(1, 3);
-            @include grid-col-breakpoint("phone", 1, 1);
-            @include grid-col-breakpoint("tablet", 1, 1);
-            .btn,.note {
-                margin-bottom: $grid-gutter;
-            }
-            label{
-                margin-top:$grid-gutter/2;
-            }
-        }
-        .col {
-            @include grid-col(1, 3, 0);
-            @include grid-col-breakpoint("phone", 1, 2);
-            @include grid-col-breakpoint("tablet", 1, 2);
-        }
-    }
-}
-
-.tables {
-    .container {
-        @include grid-col(12);
-    }
-}
-
-.thumbs {
-    .container {
-        @include grid-col(12);
-    }
-    .galeria {
-        @include grid-col(12,12,0);
-    }
-    .thumb {
-        @include grid-col(1, 8);
-        @include grid-col-breakpoint("phone", 1, 2);
-        @include grid-col-breakpoint("tablet", 1, 4);
-        img {
-            width: 100%;
-        }
-    }
-}
-
-.breadcrumbs {
-    .container {
-        @include grid-col(12);
-    }
-}
-
-.buttons {
-    .container {
-        @include grid-col(12);
-    }
-    .btn {
-        margin: 0 $grid-gutter / 2 $grid-gutter / 2 0;
-    }
-}
-
-
-.notes {
-    .container {
-        @include grid-col(12);
-    }
-}
-
-.grid{
-    .grid-row{
-        background-color: theme-color("silver",45%);
-        color: theme-color("silver",10%);
-        .info{
-            @include grid-col(12);
-        }
-        .col4{
-            @include grid-col(4);
-        }
-    }
-}
-
 
 footer {
     .container {
         @include grid-row();
-        @include grid-col(12);
+        @include grid-column(12);
     }
-    background: theme-color("dark");
+    background: color("dark");
     color: #fff;
     padding: 15px 0;
 
@@ -367,13 +159,13 @@ footer {
             font-size:30px;
             margin-right:20px;
             color:#fff;
-            @include grid-breakpoint("phone") {
+            @include grid-breakpoint("small") {
                 margin-right:10px;
             }
         }
     }
     .link,.me{
-        color:theme-color("ocean",20%);
+        color:color("ocean",20%);
 
     }
     .me{
@@ -382,9 +174,80 @@ footer {
     .link{
         margin:0 20px;
         font-weight:600;
-        @include grid-breakpoint("phone") {
+        @include grid-breakpoint("small") {
             margin:0 8px;
         }
     }
 
+}
+
+
+//------------------------------------------------------
+//  GRID ANIMATION
+//------------------------------------------------------
+
+@-webkit-keyframes exemplegrid {
+    from {opacity: 0;transform:translateY(30px);}
+    to {opacity: 1;transform:translateY(0px);}
+}
+
+.exemple-grid{
+    @include grid-column(12);
+    margin-bottom:$grid-gutter;
+    opacity:0;
+    animation: exemplegrid $animation-duration*3;
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
+    .viewport{
+        @include grid-column(12);
+        border:1px dashed color("silver",20%);;
+        min-height:100px;
+        color:color("ocean");
+        padding-top: 10px;
+        padding-bottom:20px;
+        border-radius:3px;
+        margin-top:5px;
+        font-weight:600;
+        opacity:0;
+        animation: exemplegrid $animation-duration*3;
+        animation-delay: 1.5s;
+        animation-fill-mode: forwards;
+        .row{
+            @include grid-column(12,12,false);
+            border:1px solid color("ocean",20%);
+            height:100%;
+            margin-top:5px;
+            padding-top:20px;
+            padding-bottom:20px;
+            border-radius:3px;
+            opacity:0;
+            animation: exemplegrid $animation-duration*3;
+            animation-delay: 2.5s;
+            animation-fill-mode: forwards;
+            .col {
+                @include grid-column(3,12);
+                @include grid-column-breakpoint("small",12,12);
+                @include grid-column-breakpoint("medium",6,12);
+                @include grid-breakpoint("small","medium")
+                {
+                    margin-bottom:$grid-gutter/4;
+                    margin-top:$grid-gutter/4;
+                }
+                height:100%;
+                opacity:0;
+                animation: exemplegrid $animation-duration*3;
+                animation-delay: 3.5s;
+                animation-fill-mode: forwards;
+                .line{
+                    border:1px solid color("ocean");
+                    height:100%;
+                    border-radius:3px;
+                    border-radius:3px;
+                    display:block;
+                    text-align:center;
+                    padding:10px 0;
+                }
+            }
+        }
+    }
 }

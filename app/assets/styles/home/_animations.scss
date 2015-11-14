@@ -1,0 +1,28 @@
+@keyframes headerstart {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+@keyframes headerbuttonstart {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+@keyframes showcanvas {
+    from {
+        background-color: color("dark");
+    }
+    to {
+        background-color: rgba(28, 39, 49, 0);
+    }
+}
