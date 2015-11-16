@@ -47,7 +47,9 @@ gulp.task("styles", function() {
     gulp.src(app + "/" + styles + "/**/*.scss")
         .pipe(plugins.plumber())
         .pipe(plugins.sourcemaps.init())
-        .pipe(plugins.sass().on("error", plugins.sass.logError))
+        .pipe(plugins.sass({
+            includePaths: ["./node_modules"]
+        }).on("error", plugins.sass.logError))
         .pipe(plugins.autoprefixer(AUTOPREFIXER_BROWSERS))
         .pipe(plugins.sourcemaps.write())
         .pipe(gulp.dest(dev + "/" + styles))

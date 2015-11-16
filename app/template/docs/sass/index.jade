@@ -13,19 +13,19 @@ block content
 					+command-description().
 						First you need to import frontendler sass library.
 					+command-code("scss")
-						|@import "frontendler/frontendler";
+						|@import "frontendler-sass/frontendler";
 			div.container
 				+command-block()
 					+command-name("Settings","settings")
 					+command-description().
-						Frontendler have a settings file with default values:
+						Frontendler has a settings file with default values:
 					+command-code("scss").
 						//-----------------------------------------------------------
 						//FONT
 						//-----------------------------------------------------------
 						$font-family: "Open Sans" !default;
-						$font-size-text: 14px !default;
-						
+						$font-size: 14px !default;
+
 						//-----------------------------------------------------------
 						//ANIMATION
 						//-----------------------------------------------------------
@@ -50,7 +50,7 @@ block content
 							"slide-in-down",
 							"alert"
 						) !default;
-						
+
 						//-----------------------------------------------------------
 						//GRID
 						//-----------------------------------------------------------
@@ -63,7 +63,7 @@ block content
 							"xlarge":  1440px min 1441px max 1920px,
 							"xxlarge": 1920px min 1921px
 						) !default;
-						
+
 						//-----------------------------------------------------------
 						//COLOR
 						//-----------------------------------------------------------
@@ -80,14 +80,15 @@ block content
 							"gray":    #606c78,
 							"silver":  #939fac
 						) !default;
+
 					+command-description().
-						But you can customize these settings in your own settings file or other sass file like this:
+						But you can customize these in your own settings file or other sass file like this:
 					+command-code("scss").
 						//-----------------------------------------------------------
 						//FONT
 						//-----------------------------------------------------------
 						$font-family: "Arial";
-						$font-size-text: 15px;	
+						$font-size: 15px;	
 						
 						//-----------------------------------------------------------
 						//COLOR
@@ -103,15 +104,19 @@ block content
 						$animation-keyframes:(
 							"fade-in",
 							"fade-out",
-						) !default;
+						);
 			div.container
 				+command-block()
 					+command-name("Reset","reset")
 					+command-description().
-						After your settings, include reset css for normalize your styles with the settings values.
+						After your settings, include reset css to normalize your styles with the settings values.
 					+command-code("scss")
 						|@include reset();
 			+title("Grid")
+			div.container
+				+command-block()
+					+command-description.
+						These is a example of how frontendler grid works.
 			div.container
 				div.exemple-grid
 					|document
@@ -194,8 +199,8 @@ block content
 			div.container
 				+command("animation-duration","scss","animation-duration").
 					$animation-duration: 0.25s !default;
-				+command("animation-ease","scss","animation-ease").
-					$animation-ease: (
+				+command("animation-time-functions","scss","animation-time-functions").
+					$animation-time-functions: (
 						"in-out-quad": cubic-bezier(0.455, 0.030, 0.515, 0.955),
 						"in-out-cubic": cubic-bezier(0.645, 0.045, 0.355, 1.000),
 						"in-out-quart": cubic-bezier(0.770, 0.000, 0.175, 1.000),
@@ -216,22 +221,22 @@ block content
 						"slide-in-down",
 						"alert"
 					) !default;
-				+command("animation-ease","scss","animation-ease").
-					animation-ease ($name);
+				+command("animation-time-function","scss","animation-time-function").
+					animation-time-function ($name);
 		article.utils
 			+title("Utils")
 			div.container
 				+command-block()
 					+command-name("Clearfix","clearfix")
 					+command-description().
-						More about this mixin in <a href="http://cssmojo.com/latest_new_clearfix_so_far" target="_blank">http://cssmojo.com/latest_new_clearfix_so_far</a>
+						More about this mixin in this <a href="http://cssmojo.com/latest_new_clearfix_so_far" target="_blank">link</a>.
 					+command-code("scss")
 						|@include clearfix();
 						
 				+command-block()
 					+command-name("box-shadow","box-shadow")
 					+command-description().
-						Based on <a href="https://medium.com/@Florian/freebie-google-material-design-shadow-helper-2a0501295a2d" target="_blank">https://medium.com/@Florian/freebie-google-material-design-shadow-helper-2a0501295a2d</a>
+						Based in this awesome <a href="https://medium.com/@Florian/freebie-google-material-design-shadow-helper-2a0501295a2d" target="_blank">freebie</a>.
 					+command-code("scss")
 						|@include box-shadow($level);
 					

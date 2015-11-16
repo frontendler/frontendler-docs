@@ -1,7 +1,7 @@
 //------------------------------------------------------
 // IMPORTS
 //------------------------------------------------------
-@import "frontendler/frontendler";
+@import "frontendler-sass/frontendler";
 @import "libs/prism";
 @import "docs/settings";
 
@@ -42,7 +42,7 @@ a {
     @include grid-column-breakpoint("medium", 12, 12,false);
     @include grid-column-breakpoint("xlarge", 10, 12,false);
     @include grid-column-breakpoint("xxlarge", 10, 12,false);
-    padding-bottom: $grid-gutter;
+    padding-bottom: 100px;
     border-left: 1px solid color("silver",10%);
     background: #fff;
     height: 100%;
@@ -166,6 +166,7 @@ a {
                 margin-left: 10px;
                 font-weight: 600;
                 color: color("ocean");
+                animation: bounce-in-down 1s .5s both;
             }
         }
         .version{
@@ -288,7 +289,7 @@ pre {
 }
 code {
     // white-space: pre-wrap;
-    font-size: $font-size-text - 2px;
+    font-size: $font-size - 2px;
     // display: table;
     // font-weight: 600;
 }
@@ -306,6 +307,10 @@ pre.box-code {
 
         background: #fff;
         color: #606c78;
+
+        @include grid-breakpoint("small") {
+            font-size: 11px;
+        };
         span{
             // padding: 0 2px;
         }

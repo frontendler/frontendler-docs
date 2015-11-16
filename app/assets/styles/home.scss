@@ -1,7 +1,7 @@
 //------------------------------------------------------
 // IMPORTS
 //------------------------------------------------------
-@import "frontendler/frontendler";
+@import "frontendler-sass/frontendler";
 @import "home/settings";
 @import "home/animations";
 
@@ -154,12 +154,10 @@ h3 {
     }
 }
 .label {
-
-    // @include theme(ocean);
     border-radius: 3px;
     display: inline-block;
     padding: 1px 8px 4px;
-    font-size: $font-size-text - 1;
+    font-size: $font-size - 1;
     line-height: inherit;
     font-weight: 600;
 }
