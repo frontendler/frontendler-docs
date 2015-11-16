@@ -6,17 +6,21 @@ mixin command(name,type,hash)
 			code(class="language-#{type}")
 				if block
 					block
-						
-mixin command-name (name,hash)
+
+mixin command-block()
+	div.command-block
+		block
+			
+mixin command-name(name,hash)
 	h3.command-name
 		a(name="#{hash}").name=name
 
-mixin command-code (name,hash)
+mixin command-code (type)
 	pre.box-code
 		code(class="language-#{type}")
 			if block
 				block
 
-mixin command-description (name,hash)
-	h3.command-name
-		a(name="#{hash}").name=name
+mixin command-description()
+	p.description
+		block

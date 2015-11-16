@@ -1,7 +1,7 @@
 //------------------------------------------------------
 // IMPORTS
 //------------------------------------------------------
-@import "frontendler/core";
+@import "frontendler/frontendler";
 @import "libs/prism";
 @import "docs/settings";
 
@@ -277,32 +277,35 @@ article {
 //------------------------------------------------------
 pre {
 
-    white-space: nowrap;
+    // white-space: nowrap;
 }
 code {
-    white-space: pre-wrap;
+    // white-space: pre-wrap;
     font-size: $font-size-text - 2px;
-    display: table;
+    // display: table;
     // font-weight: 600;
 }
 pre.box-code {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding:10px;
     code {
-        width: 100%;
+        // width: 100%;
         font-family: 'Open Sans';
         font-size: 13px;
         letter-spacing: 0.035em;
         white-space: pre-line;
-        padding: 10px;
-        border: 1px solid #ddd;
+        // padding: 10px;
+
         background: #fff;
         color: #606c78;
-        border-radius: 5px;
+
         a {
             color: color("ocean");
             font-size: inherit;
         }
         span{
-            padding: 0 2px;
+            // padding: 0 2px;
         }
     }
 }
@@ -313,7 +316,6 @@ pre.box-code {
 .command-block {
     @include grid-column(12);
     .command-name {
-
         // font-weight: 600;
         font-size: 16px;
         padding: 0;
@@ -327,6 +329,10 @@ pre.box-code {
     }
     .box-code {
         margin: $grid-gutter/2 0;
+    }
+
+    .description{
+        color:color("gray",40%);
     }
 }
 
@@ -377,21 +383,10 @@ footer {
 //------------------------------------------------------
 //  GRID ANIMATION
 //------------------------------------------------------
-@-webkit-keyframes exemplegrid {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0px);
-    }
-}
+
 .exemple-grid {
     @include grid-column(12);
     margin-bottom: $grid-gutter;
-    opacity: 0;
-    animation: exemplegrid $animation-duration*3 0.5s both;
     color: color("gray");
     .viewport {
         @include grid-column(12);
@@ -402,8 +397,6 @@ footer {
         padding-bottom: 20px;
         border-radius: 3px;
         margin-top: 5px;
-        opacity: 0;
-        animation: exemplegrid $animation-duration*3 1s both;
         .row {
             @include grid-column(12,12,false);
             border: 1px solid color("ocean",20%);
@@ -412,8 +405,6 @@ footer {
             padding-top: 20px;
             padding-bottom: 20px;
             border-radius: 3px;
-            opacity: 0;
-            animation: exemplegrid $animation-duration*3 1.5s both;
             .col {
                 @include grid-column(3,12);
                 @include grid-column-breakpoint("small",12,12);
@@ -423,8 +414,6 @@ footer {
                     margin-top: $grid-gutter/4;
                 }
                 height: 100%;
-                opacity: 0;
-                animation: exemplegrid $animation-duration*3 2s both;
                 .line {
                     border: 1px solid color("ocean");
                     height: 100%;

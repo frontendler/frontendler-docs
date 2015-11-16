@@ -6,38 +6,27 @@ block sidebar
 block content
 	div.typo
 		+title("Dependencies")
-		div.install
-			div.container
-				+command("Node","text","node").
-					Download and install instructions in this page <a href="http://nodejs.org/">http://nodejs.org/</a>
-				+command("Gulp","bash","gulp").
-					$npm install gulp -g
+		div.container
+			+command("Node","text","node").
+				Download and install instructions in this page <a href="http://nodejs.org/" target="_blank">http://nodejs.org/</a>
+			+command("Gulp","bash","gulp").
+				$npm install gulp -g
 		+title("Install")
-		div.install
-			div.container
-				+command("Clone the project","bash","clone").
-					$git clone git@github.com:frontendler/frontendler.git
-				+command("Install project dependencies","bash","npm").
-					$npm install
-		+title("Tools")
-		div.tools
-			div.container
-				+command("Atom snippets","text","atom-snippets")
-					|<a href="https://atom.io/packages/frontendler-atom-snippets">https://atom.io/packages/frontendler-atom-snippets</a>
+		div.container
+			+command("Clone the project","bash","clone").
+				$git clone git@github.com:frontendler/frontendler.git
+			+command("Install project dependencies","bash","npm").
+				$npm install
 		+title("Run Frontendler")
-		div.install
-			div.container
-				+command("Watch","bash","watch").
-					$gulp watch
-				+command("Build","bash","build").
-					$gulp build
-		+title("Setup")
-		div.install
-			div.container
-				+command("Settings","bash","settings").
-					$gulp watch
-				+command("Reset","bash","build").
-					$gulp build
+		div.container
+			+command("Watch","bash","watch").
+				$gulp watch
+			+command("Build","bash","build").
+				$gulp build	
+		+title("Tools")
+		div.container
+			+command("Atom snippets","text","atom-snippets")
+				|<a href="https://atom.io/packages/frontendler-atom-snippets" target="_blank">https://atom.io/packages/frontendler-atom-snippets</a>
 		//- +title("Yeoman generator")
 		//- div.install
 		//- 	div.container
