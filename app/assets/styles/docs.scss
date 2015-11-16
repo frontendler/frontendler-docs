@@ -153,7 +153,7 @@ a {
     .container {
         @include grid-row(false);
         .logo {
-            @include grid-column(12, 12);
+            @include grid-column(8, 12);
             h1 {
                 display: inline;
                 color: color("gray");
@@ -167,6 +167,13 @@ a {
                 font-weight: 600;
                 color: color("ocean");
             }
+        }
+        .version{
+            @include grid-column(4, 12);
+            display: block;
+            text-align: right;
+            color:color("gray");
+            line-height: 47px;
         }
         .bt-menu {
             display: none;
@@ -299,11 +306,6 @@ pre.box-code {
 
         background: #fff;
         color: #606c78;
-
-        a {
-            color: color("ocean");
-            font-size: inherit;
-        }
         span{
             // padding: 0 2px;
         }
@@ -315,6 +317,11 @@ pre.box-code {
 //------------------------------------------------------
 .command-block {
     @include grid-column(12);
+
+    a {
+        color: color("ocean");
+        font-size: inherit;
+    }
     .command-name {
         // font-weight: 600;
         font-size: 16px;

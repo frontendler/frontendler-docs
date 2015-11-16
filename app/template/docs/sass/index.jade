@@ -30,7 +30,7 @@ block content
 						//ANIMATION
 						//-----------------------------------------------------------
 						$animation-duration: 0.25s !default;
-						$animation-ease: (
+						$animation-time-functions: (
 							"in-out-quad": cubic-bezier(0.455, 0.030, 0.515, 0.955),
 							"in-out-cubic": cubic-bezier(0.645, 0.045, 0.355, 1.000),
 							"in-out-quart": cubic-bezier(0.770, 0.000, 0.175, 1.000),
@@ -221,8 +221,18 @@ block content
 		article.utils
 			+title("Utils")
 			div.container
-				+command("clearfix","scss","clearfix").
-					@include clearfix();
-				+command("box-shadow","scss","box-shadow").
-					@include box-shadow($level);
+				+command-block()
+					+command-name("Clearfix","clearfix")
+					+command-description().
+						More about this mixin in <a href="http://cssmojo.com/latest_new_clearfix_so_far" target="_blank">http://cssmojo.com/latest_new_clearfix_so_far</a>
+					+command-code("scss")
+						|@include clearfix();
+						
+				+command-block()
+					+command-name("box-shadow","box-shadow")
+					+command-description().
+						Based on <a href="https://medium.com/@Florian/freebie-google-material-design-shadow-helper-2a0501295a2d" target="_blank">https://medium.com/@Florian/freebie-google-material-design-shadow-helper-2a0501295a2d</a>
+					+command-code("scss")
+						|@include box-shadow($level);
+					
 					
