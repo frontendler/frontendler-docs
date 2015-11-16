@@ -13,7 +13,6 @@
 //------------------------------------------------------
 //GLOBAL
 //------------------------------------------------------
-
 a {
     transition: color $animation-duration;
 }
@@ -24,10 +23,10 @@ a {
 .docs-main {
     @include grid-row();
     position: fixed;
-    top:0;
+    top: 0;
     left: 0;
     width: 100%;
-    height:100vh;
+    height: 100vh;
     padding-top: 108px;
     z-index: -1;
     overflow: hidden;
@@ -44,7 +43,6 @@ a {
     @include grid-column-breakpoint("xlarge", 10, 12,false);
     @include grid-column-breakpoint("xxlarge", 10, 12,false);
     padding-bottom: $grid-gutter;
-    padding-top: $grid-gutter/2;
     border-left: 1px solid color("silver",10%);
     background: #fff;
     height: 100%;
@@ -107,12 +105,12 @@ a {
                     transition: opacity $animation-duration;
                     border-radius: 3px;
                     margin-left: 5px;
-                    opacity:0;
+                    opacity: 0;
                     content: "-";
                 }
                 &:hover {
                     &:after {
-                        opacity:1;
+                        opacity: 1;
                     }
                 }
             }
@@ -140,10 +138,9 @@ a {
 //------------------------------------------------------
 //  TOP
 //------------------------------------------------------
-
-.docs-header{
+.docs-header {
     position: fixed;
-    top:0;
+    top: 0;
     left: 0;
     width: 100%;
     backface-visibility: hidden;
@@ -157,8 +154,6 @@ a {
         @include grid-row(false);
         .logo {
             @include grid-column(12, 12);
-
-            // animation: fade-in 1s 0.3s both;
             h1 {
                 display: inline;
                 color: color("gray");
@@ -175,9 +170,6 @@ a {
         }
         .bt-menu {
             display: none;
-
-            // @include grid-breakpoint-hide("desktop");
-            // @include grid-breakpoint-hide("xlarge");
             border-radius: 3px;
             position: absolute;
             top: 10px;
@@ -202,8 +194,6 @@ a {
     width: 100%;
     .container {
         @include grid-row(false);
-
-        // font-weight: 600;
         .menu {
             @include grid-column(12, 12);
             .itens {
@@ -213,8 +203,6 @@ a {
                     float: left;
                     .link {
                         color: color("dark",10%);
-
-                        //color: #b3e5ef;
                         cursor: pointer;
                         padding: 10px 20px 10px 0;
                         &:hover {
@@ -248,12 +236,12 @@ a {
 //------------------------------------------------------
 h2.docs-title {
     @include grid-column(12, 12);
-    margin: 0;
+    margin: 25px 0 0;
     span {
         display: inline-block;
         padding: 10px 0 30px;
         margin: -1px 0 0;
-        border-top: 4px solid color("ocean");
+        border-top: 2px solid color("ocean");
         color: color("gray");
         font-size: 25px;
         font-weight: normal;
@@ -288,23 +276,23 @@ article {
 //  BOX CODE
 //------------------------------------------------------
 pre {
+
     white-space: nowrap;
 }
 code {
     white-space: pre-wrap;
     font-size: $font-size-text - 2px;
-
+    display: table;
     // font-weight: 600;
 }
 pre.box-code {
     code {
-        display: block;
+        width: 100%;
         font-family: 'Open Sans';
         font-size: 13px;
         letter-spacing: 0.035em;
         white-space: pre-line;
         padding: 10px;
-        overflow: auto;
         border: 1px solid #ddd;
         background: #fff;
         color: #606c78;
@@ -312,6 +300,9 @@ pre.box-code {
         a {
             color: color("ocean");
             font-size: inherit;
+        }
+        span{
+            padding: 0 2px;
         }
     }
 }
@@ -322,11 +313,11 @@ pre.box-code {
 .command-block {
     @include grid-column(12);
     .command-name {
-        // font-weight: 600;
-        font-size: 18px;
-        padding:0;
-        margin:0;
 
+        // font-weight: 600;
+        font-size: 16px;
+        padding: 0;
+        margin: 0;
         .name {
             font-size: inherit;
             color: color("gray");
@@ -336,7 +327,6 @@ pre.box-code {
     }
     .box-code {
         margin: $grid-gutter/2 0;
-        margin-bottom: $grid-gutter;
     }
 }
 
@@ -401,9 +391,7 @@ footer {
     @include grid-column(12);
     margin-bottom: $grid-gutter;
     opacity: 0;
-    animation: exemplegrid $animation-duration*3;
-    animation-delay: 0.5s;
-    animation-fill-mode: forwards;
+    animation: exemplegrid $animation-duration*3 0.5s both;
     color: color("gray");
     .viewport {
         @include grid-column(12);
@@ -414,12 +402,8 @@ footer {
         padding-bottom: 20px;
         border-radius: 3px;
         margin-top: 5px;
-
-        // font-weight: 600;
         opacity: 0;
-        animation: exemplegrid $animation-duration*3;
-        animation-delay: 1.5s;
-        animation-fill-mode: forwards;
+        animation: exemplegrid $animation-duration*3 1s both;
         .row {
             @include grid-column(12,12,false);
             border: 1px solid color("ocean",20%);
@@ -429,9 +413,7 @@ footer {
             padding-bottom: 20px;
             border-radius: 3px;
             opacity: 0;
-            animation: exemplegrid $animation-duration*3;
-            animation-delay: 2.5s;
-            animation-fill-mode: forwards;
+            animation: exemplegrid $animation-duration*3 1.5s both;
             .col {
                 @include grid-column(3,12);
                 @include grid-column-breakpoint("small",12,12);
@@ -442,9 +424,7 @@ footer {
                 }
                 height: 100%;
                 opacity: 0;
-                animation: exemplegrid $animation-duration*3;
-                animation-delay: 3.5s;
-                animation-fill-mode: forwards;
+                animation: exemplegrid $animation-duration*3 2s both;
                 .line {
                     border: 1px solid color("ocean");
                     height: 100%;

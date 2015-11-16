@@ -2,7 +2,7 @@ extends /_layouts/_docs
 block link
 	-var selected = 'Sass';
 block sidebar
-	include /_includes/_docs_sidebar_core
+	include /_includes/_docs_sidebar_sass
 block content
 	div.content
 		article.grid
@@ -31,11 +31,11 @@ block content
 					$grid-gutter-outer: 5px;
 				+command("grid-breakpoints","scss","grid-breakpoints").
 					$grid-breakpoints:(
-						"small":   100% max 640px,
-						"medium":  100% min 641px max 1024px,
-						"large":   1024px min 1025px max 1440px,
-						"xlarge":  1440px min 1441px max 1920px,
-						"xxlarge": 1920px min 1921px
+					    "small":   100% max 640px,
+					    "medium":  100% min 641px max 1024px,
+					    "large":   1024px min 1025px max 1440px,
+					    "xlarge":  1440px min 1441px max 1920px,
+					    "xxlarge": 1920px min 1921px
 					) !default;
 				+command("grid-row","scss","grid-row").
 					@include grid-row($gutter: $grid-gutter-outside, $breakpoints: $grid-breakpoints);
@@ -65,22 +65,59 @@ block content
 					@include grid-breakpoint-hide($devices...);
 				+command("grid-breakpoint-show","scss","grid-breakpoint-show").
 					@include grid-breakpoint-show($devices...);
-		article.theme
+		article.color
 			+title("Color")
 			div.container
 				+command("colors","scss","colors").
 					$colors:(
-						ocean:   #00a7ca,
-						blue:    #0075d3,
-						purple:  #8244a7,
-						pink:    #dd318a,
-						green:   #71be48,
-						yellow:  #f59d37,
-						orange:  #f75925,
-						red:     #dd202b,
-						dark:    #1c2731,
-						gray:    #606c78,
-						silver:  #939fac
+					    ocean:   #00a7ca,
+					    blue:    #0075d3,
+					    purple:  #8244a7,
+					    pink:    #dd318a,
+					    green:   #71be48,
+					    yellow:  #f59d37,
+					    orange:  #f75925,
+					    red:     #dd202b,
+					    dark:    #1c2731,
+					    gray:    #606c78,
+					    silver:  #939fac
 					);
 				+command("color","scss","color").
 					color ($color-name, $amount:50%);
+		article.animation
+			+title("Animation")
+			div.container
+				+command("animation-duration","scss","animation-duration").
+					$animation-duration: 0.25s !default;
+				+command("animation-ease","scss","animation-ease").
+					$animation-ease: (
+						"in-out-quad": cubic-bezier(0.455, 0.030, 0.515, 0.955),
+						"in-out-cubic": cubic-bezier(0.645, 0.045, 0.355, 1.000),
+						"in-out-quart": cubic-bezier(0.770, 0.000, 0.175, 1.000),
+						"in-out-quint": cubic-bezier(0.860, 0.000, 0.070, 1.000),
+						"in-out-sine": cubic-bezier(0.445, 0.050, 0.550, 0.950),
+						"in-out-expo": cubic-bezier(1.000, 0.000, 0.000, 1.000),
+						"in-out-circ": cubic-bezier(0.785, 0.135, 0.150, 0.860),
+					) !default;
+				+command("animation-keyframes","scss","animation-keyframes").
+					$animation-keyframes:(
+						"fade-in",
+						"fade-out",
+						"bounce-in-down",
+						"bounce-in-up",
+						"rubber-band",
+						"zoom-in",
+						"slide-in-up",
+						"slide-in-down",
+						"alert"
+					) !default;
+				+command("animation-ease","scss","animation-ease").
+					animation-ease ($name);
+		article.utils
+			+title("Utils")
+			div.container
+				+command("clearfix","scss","clearfix").
+					@include clearfix();
+				+command("box-shadow","scss","box-shadow").
+					@include box-shadow($level);
+					

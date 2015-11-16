@@ -19,12 +19,24 @@ block content
 					$git clone git@github.com:frontendler/frontendler.git
 				+command("Install project dependencies","bash","npm").
 					$npm install
+		+title("Tools")
+		div.tools
+			div.container
+				+command("Atom snippets","text","atom-snippets")
+					|<a href="https://atom.io/packages/frontendler-atom-snippets">https://atom.io/packages/frontendler-atom-snippets</a>
 		+title("Run Frontendler")
 		div.install
 			div.container
 				+command("Watch","bash","watch").
 					$gulp watch
 				+command("Build","bash","build").
+					$gulp build
+		+title("Setup")
+		div.install
+			div.container
+				+command("Settings","bash","settings").
+					$gulp watch
+				+command("Reset","bash","build").
 					$gulp build
 		//- +title("Yeoman generator")
 		//- div.install
