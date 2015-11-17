@@ -11,6 +11,25 @@
 @include reset();
 
 //------------------------------------------------------
+//ANIMATIONS
+//------------------------------------------------------
+
+@keyframes header-fade-in (){
+    0%{
+        opacity:0;
+        transform: scale(1,1);
+    }
+    50%{
+        opacity:0.7;
+    }
+
+    100%{
+        opacity:0;
+        transform: scale(1.3,1.3);
+    }
+}
+
+//------------------------------------------------------
 //GLOBAL
 //------------------------------------------------------
 
@@ -41,24 +60,54 @@ header {
     @extend %clearfix;
     position: relative;
     background: color("dark");
+    position: relative;
+    overflow: hidden;
     .pg-canvas {
         position: absolute;
         top: 0;
         left: 0;
         background: color("dark");
         z-index: -1;
+        // background-image:url("../images/bg-1.jpg");
+        // background-size: cover;
     }
     .container {
         @include grid-row;
         padding-top: 50px;
         padding-bottom: 50px;
     }
+
+    .background{
+        position: absolute;
+        top:0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        // z-index: -1;
+
+        &.bg1{
+            background-image:url("../images/bg-1.jpg");
+            animation:header-fade-in 8s infinite 0s both;
+        }
+        &.bg2{
+            background-image:url("../images/bg-2.jpg");
+            animation:header-fade-in 6s infinite 3s both;
+        }
+        &.bg3{
+            background-image:url("../images/bg-3.jpg");
+            animation:header-fade-in 9s infinite 6s both;
+        }
+    }
+
+
     h1,
     h2,
     h3 {
         opacity: 0;
         animation: headerstart $animation-duration*2;
-        animation-fill-mode: forwards;
+        animation-fill-mode: both;
     }
     h1 {
         animation-delay: 0.1s;
@@ -78,7 +127,7 @@ header {
     .github {
         opacity: 0;
         animation: headerbuttonstart $animation-duration*2;
-        animation-fill-mode: forwards;
+        animation-fill-mode: both;
 
     }
     .documentation {
@@ -124,10 +173,10 @@ h3 {
         line-height: 40px;
     }
     h2 {
-        font-size: 20px;
+        font-size: 17px;
     }
     h3 {
-        font-size: 16px;
+        font-size: 15px;
     }
 }
 .info {

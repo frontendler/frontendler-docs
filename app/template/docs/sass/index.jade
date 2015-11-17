@@ -118,7 +118,7 @@ block content
 					+command-description.
 						These is a example of how frontendler grid works.
 			div.container
-				div.exemple-grid
+				div.example-grid
 					|document
 					div.viewport
 						|row
@@ -152,9 +152,9 @@ block content
 				+command("grid-column","scss","grid-column").
 					@include grid-column($column, $columns: 12, $gutter: $grid-gutter);
 				+command("grid-column-breakpoint","scss","grid-column-breakpoint").
-					@include grid-column-breakpoint($device, $column, $columns: 12, $gutter: false)
+					@include grid-column-breakpoint($breakpoint, $column, $columns: 12, $gutter: false)
 					or
-					@include grid-column-breakpoint($device, $column, $columns: 12, $gutter: false){
+					@include grid-column-breakpoint($breakpoint, $column, $columns: 12, $gutter: false){
 						...
 					};
 				+command("grid-column-breakpoint-custom","scss","grid-column-breakpoint-custom").
@@ -164,7 +164,7 @@ block content
 						...
 					};
 				+command("grid-breakpoint","scss","grid-breakpoint").
-					@include grid-breakpoint($devices...){
+					@include grid-breakpoint($breakpoints...){
 						...
 					};
 				+command("grid-breakpoint-custom","scss","grid-breakpoint-custom").
@@ -172,9 +172,9 @@ block content
 						...
 					};
 				+command("grid-breakpoint-hide","scss","grid-breakpoint-hide").
-					@include grid-breakpoint-hide($devices...);
+					@include grid-breakpoint-hide($breakpoints...);
 				+command("grid-breakpoint-show","scss","grid-breakpoint-show").
-					@include grid-breakpoint-show($devices...);
+					@include grid-breakpoint-show($breakpoints...);
 		article.color
 			+title("Color")
 			div.container

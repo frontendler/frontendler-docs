@@ -27,7 +27,7 @@ a {
     left: 0;
     width: 100%;
     height: 100vh;
-    padding-top: 108px;
+    padding-top: 96px;
     z-index: -1;
     overflow: hidden;
     backface-visibility: hidden;
@@ -147,16 +147,16 @@ a {
 }
 .docs-top {
     width: 100%;
-    padding: 10px 0;
-    border-bottom: 1px solid color("silver",10%);
-    background: white;
+    padding: 5px 0;
+    // border-bottom: 1px solid color("silver",10%);
+    background: color("dark");
     .container {
         @include grid-row(false);
         .logo {
             @include grid-column(8, 12);
             h1 {
                 display: inline;
-                color: color("gray");
+                color: white;
                 font-family: $font-family-logo;
                 font-size: 35px;
             }
@@ -165,16 +165,17 @@ a {
                 font-size: 15px;
                 margin-left: 10px;
                 font-weight: 600;
-                color: color("ocean");
-                animation: bounce-in-down 1s .5s both;
+                color: color("ocean",40%);
+                // animation: slide-in-down .5s both;
             }
         }
         .version{
             @include grid-column(4, 12);
             display: block;
             text-align: right;
-            color:color("gray");
-            line-height: 47px;
+            color:white;
+            margin-top: 20px;
+            font-size: 12px;
         }
         .bt-menu {
             display: none;
@@ -198,8 +199,9 @@ a {
     display: block;
     background-color: #f8f9fb;
     color: #a4d6e5;
-    border-bottom: 1px solid #e4e8eb;
+    // border-bottom: 1px solid #e4e8eb;
     width: 100%;
+    background-color: color("ocean");
     .container {
         @include grid-row(false);
         .menu {
@@ -210,14 +212,16 @@ a {
                 .item {
                     float: left;
                     .link {
-                        color: color("dark",10%);
+                        color: color("ocean",20%);
                         cursor: pointer;
                         padding: 10px 20px 10px 0;
+                        font-weight: 600;
+
                         &:hover {
-                            color: color("dark",20%);
+                            color: color("ocean",10%);
                         }
                         &.selected {
-                            color: color("ocean");
+                            color: white;
                         }
                     }
                 }
@@ -344,7 +348,7 @@ pre.box-code {
     }
 
     .description{
-        color:color("gray",40%);
+        color:color("gray",35%);
     }
 }
 
@@ -396,10 +400,10 @@ footer {
 //  GRID ANIMATION
 //------------------------------------------------------
 
-.exemple-grid {
+.example-grid {
     @include grid-column(12);
-    margin-bottom: $grid-gutter;
-    color: color("gray");
+    margin: 20px 0 $grid-gutter 0 ;
+    color:color("ocean",25%);
     .viewport {
         @include grid-column(12);
         border: 1px dashed color("silver",20%);
