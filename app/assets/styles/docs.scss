@@ -148,7 +148,6 @@ a {
 .docs-top {
     width: 100%;
     padding: 5px 0;
-    // border-bottom: 1px solid color("silver",10%);
     background: color("dark");
     .container {
         @include grid-row(false);
@@ -166,16 +165,16 @@ a {
                 margin-left: 10px;
                 font-weight: 600;
                 color: color("ocean",40%);
-                // animation: slide-in-down .5s both;
             }
         }
-        .version{
+        .version {
             @include grid-column(4, 12);
             display: block;
             text-align: right;
-            color:white;
+            color: color("ocean",40%);
             margin-top: 20px;
             font-size: 12px;
+            font-weight: 600;
         }
         .bt-menu {
             display: none;
@@ -199,6 +198,7 @@ a {
     display: block;
     background-color: #f8f9fb;
     color: #a4d6e5;
+
     // border-bottom: 1px solid #e4e8eb;
     width: 100%;
     background-color: color("ocean");
@@ -216,7 +216,6 @@ a {
                         cursor: pointer;
                         padding: 10px 20px 10px 0;
                         font-weight: 600;
-
                         &:hover {
                             color: color("ocean",10%);
                         }
@@ -292,31 +291,34 @@ pre {
     // white-space: nowrap;
 }
 code {
+
     // white-space: pre-wrap;
     font-size: $font-size - 2px;
+
     // display: table;
     // font-weight: 600;
 }
 pre.box-code {
     border: 1px solid #ddd;
     border-radius: 5px;
-    padding:10px;
+    padding: 10px;
     code {
+
         // width: 100%;
         font-family: 'Open Sans';
         font-size: 13px;
         letter-spacing: 0.035em;
         line-height: 1.4;
         white-space: pre-line;
-        // padding: 10px;
 
+        // padding: 10px;
         background: #fff;
         color: #606c78;
-
         @include grid-breakpoint("small") {
             font-size: 11px;
         };
-        span{
+        span {
+
             // padding: 0 2px;
         }
     }
@@ -327,12 +329,12 @@ pre.box-code {
 //------------------------------------------------------
 .command-block {
     @include grid-column(12);
-
     a {
         color: color("ocean");
         font-size: inherit;
     }
     .command-name {
+
         // font-weight: 600;
         font-size: 16px;
         padding: 0;
@@ -347,9 +349,8 @@ pre.box-code {
     .box-code {
         margin: $grid-gutter/2 0;
     }
-
-    .description{
-        color:color("gray",35%);
+    .description {
+        color: color("gray",35%);
     }
 }
 
@@ -400,11 +401,10 @@ footer {
 //------------------------------------------------------
 //  GRID ANIMATION
 //------------------------------------------------------
-
 .example-grid {
     @include grid-column(12);
-    margin: 20px 0 $grid-gutter 0 ;
-    color:#d4d9df;
+    margin: 20px 0 $grid-gutter;
+    color: #d4d9df;
     .viewport {
         @include grid-column(12);
         border: 1px dashed color("silver",20%);
