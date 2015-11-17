@@ -306,6 +306,7 @@ pre.box-code {
         font-family: 'Open Sans';
         font-size: 13px;
         letter-spacing: 0.035em;
+        line-height: 1.4;
         white-space: pre-line;
         // padding: 10px;
 
@@ -403,7 +404,7 @@ footer {
 .example-grid {
     @include grid-column(12);
     margin: 20px 0 $grid-gutter 0 ;
-    color:color("ocean",25%);
+    color:#d4d9df;
     .viewport {
         @include grid-column(12);
         border: 1px dashed color("silver",20%);
