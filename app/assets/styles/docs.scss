@@ -1,7 +1,7 @@
 //------------------------------------------------------
 // IMPORTS
 //------------------------------------------------------
-@import "frontendler-sass/frontendler";
+@import "frontendler";
 @import "libs/prism";
 @import "docs/settings";
 
@@ -152,7 +152,7 @@ a {
     padding: 5px 0;
     background: color("dark");
     .container {
-        @include grid-row(false);
+        @include grid-row();
         .logo {
             @include grid-column(8, 12);
             h1 {
@@ -203,7 +203,7 @@ a {
     background-color: color("ocean");
 
     .container {
-        @include grid-row(false);
+        @include grid-row();
         .menu {
             @include grid-column(12, 12);
             .itens {
@@ -236,7 +236,7 @@ a {
 .docs-bottom {
     @include grid-breakpoint-hide("medium");
     .container {
-        @include grid-row(false);
+        @include grid-row();
     }
     background: color("dark");
     color: #fff;
