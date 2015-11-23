@@ -7,9 +7,14 @@ html(lang="en")
 		title Frontendler
 		meta(name='description',content='The responsive development kit.Simple and efficient.', )
 		meta(name='author',content='Daniel Beff')
+		// OPEN GRAPH
+		meta(property="og:title", content="Frontendler")
+		meta(property="og:type", content="website")
+		meta(property="og:url", content="http://frontendler.com.br")
+		meta(property="og:image", content="http://ia.media-imdb.com/images/rock.jpg")
 		//windows 8 tiles
 		meta(name='msapplication-TileImage', content='/assets/images/ico/tile.png')
-		meta(name='msapplication-TileColor', content='#174c6b')
+		meta(name='msapplication-TileColor', content='#1d2732')
 		//favicon
 		link(rel='icon', href='/assets/images/favicon/favicon.png')
 		//apple favicon
@@ -38,7 +43,6 @@ html(lang="en")
 						a(href="https://github.com/frontendler/frontendler/issues").link issues
 			// build:js /assets/scripts/main.js
 			script(src='/assets/scripts/libs/jquery.js')
-			script(src='/assets/scripts/libs/jquery.particleground.js')
 			block script
 			script(src='/assets/scripts/main.js')
 			// endbuild

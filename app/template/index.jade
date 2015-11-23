@@ -1,9 +1,6 @@
 extends /_layouts/_home
 block content
 	header
-		div.background.bg1
-		div.background.bg2
-		div.background.bg3
 		div.container
 			div.info
 				h1 Frontendler<small>Beta</small>
@@ -12,18 +9,20 @@ block content
 				div.buttons
 					a.btn.documentation(href="/docs") Documentation
 					a.btn.github(href="https://github.com/frontendler/frontendler") Github
+	section.release
+		div.container
+			|current version: 
+			span.version v2.0.0
 	section.about
 		div.container
 			div.item
-				img(src="/assets/images/home-reset.svg")
-				h4 Inspect reset
-				p.
-					A modern, HTML5-ready alternative to CSS resets.
-					Focusing on little code as possible, improving inspection in browser.
+				img(src="/assets/images/home-sass.svg")
+				h4 SASS
+				p Sass is the most mature, stable, and powerful professional grade CSS extension language in the world.
 			div.item
 				img(src="/assets/images/home-theme.svg")
-				h4 Theme
-				p Control your color palette in an organized manner and get their colors through behaviors.
+				h4 Colors
+				p Control your color palette in an organized manner and get their colors through amount.
 			div.item
 				img(src="/assets/images/home-grid.svg")
 				h4 Grid
@@ -31,14 +30,16 @@ block content
 					The frontendler responsive SASS semantic grid.
 					Use a few lines to make a complex responive layout.
 			div.item
+				img(src="/assets/images/home-gulp.svg")
+				h4 Gulp
+				p By preferring code over configuration, gulp keeps simple things simple and makes complex tasks manageable.
+			div.item
 				img(src="/assets/images/home-browser.svg")
 				h4 Browser Sync
 				p Makes your browser testing workflow faster by synchronising URLs, interactions and code changes across multiple devices.
 			div.item
-				img(src="/assets/images/home-sass.svg")
-				h4 SASS
-				p Sass is the most mature, stable, and powerful professional grade CSS extension language in the world.
-			div.item
-				img(src="/assets/images/home-gulp.svg")
-				h4 Gulp
-				p By preferring code over configuration, gulp keeps simple things simple and makes complex tasks manageable.
+				img(src="/assets/images/home-reset.svg")
+				h4 Reset
+				p.
+					A modern, dinamic, HTML5-ready alternative to CSS resets.
+					Focusing on little code as possible.

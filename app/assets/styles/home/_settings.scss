@@ -1,15 +1,16 @@
-//-----------------------------------------------------
-// FONT
-//-----------------------------------------------------
 $font-family-logo: "Grand Hotel";
 
-//-----------------------------------------------------
-// GRID
-//-----------------------------------------------------
-$grid-breakpoints:(
-	"small":   100% max 640px,
-	"medium":  100% min 641px max 1200px,
-	"large":   1200px min 1201px max 1600px,
-	"xlarge":  1600px min 1601px max 1920px,
-	"xxlarge": 1920px min 1921px
+$colors:(
+    "ocean":   #00a7ca,
+	"blue":    #0075d3,
+	"purple":  #8244a7,
+	"pink":    #dd318a,
+	"green":   #71be48,
+	"yellow":  #f59d37,
+	"orange":  #f75925,
+	"red":     #dd202b,
+	"dark":    #1c2731,
+	"gray":    #606c78,
+	"silver":  #939fac,
+    "sky":     #b0c3d4
 );

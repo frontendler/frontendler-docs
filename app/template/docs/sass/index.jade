@@ -23,7 +23,7 @@ block content
 						//-----------------------------------------------------------
 						//FONT
 						//-----------------------------------------------------------
-						$font-family: "Open Sans" !default;
+						$font-family: "Open Sans", "Helvetica", sans-serif !default;
 						$font-size: 14px !default;
 
 						//-----------------------------------------------------------
@@ -55,14 +55,13 @@ block content
 						//GRID
 						//-----------------------------------------------------------
 						$grid-gutter: 40px !default;
-						$grid-gutter-outside: 5px !default;
 						$grid-breakpoints:(
-							"small":   100% max 640px,
-							"medium":  100% min 641px max 1024px,
-							"large":   1024px min 1025px max 1440px,
-							"xlarge":  1440px min 1441px max 1920px,
-							"xxlarge": 1920px min 1921px
-						) !default;
+							"xsmall": 100% max 600px,
+							"small":  100% min 601px max 960px,
+							"medium": 100% min 961px max 1280px,
+							"large":  1280px min 1281px max 1600px,
+						    "xlarge": 1600px min 1601px
+						)!default;
 
 						//-----------------------------------------------------------
 						//COLOR
@@ -80,6 +79,7 @@ block content
 							"gray":    #606c78,
 							"silver":  #939fac
 						) !default;
+
 
 					+command-description().
 						But you can customize these in your own settings file or other sass file like this:
@@ -137,8 +137,6 @@ block content
 									|column
 				+command("grid-gutter","scss","grid-gutter").
 					$grid-gutter: 40px;
-				+command("grid-gutter-outside","scss","grid-gutter-outside").
-					$grid-gutter-outer: 5px;
 				+command("grid-breakpoints","scss","grid-breakpoints").
 					$grid-breakpoints:(
 					    "small":   100% max 640px,
@@ -148,7 +146,7 @@ block content
 					    "xxlarge": 1920px min 1921px
 					) !default;
 				+command("grid-row","scss","grid-row").
-					@include grid-row($gutter: $grid-gutter-outside, $breakpoints: $grid-breakpoints);
+					@include grid-row();
 				+command("grid-column","scss","grid-column").
 					@include grid-column($column, $columns: 12, $gutter: $grid-gutter);
 				+command("grid-column-breakpoint","scss","grid-column-breakpoint").

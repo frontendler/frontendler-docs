@@ -38,10 +38,11 @@ a {
 //------------------------------------------------------
 .docs-content {
     @include grid-column(13, 16,false);
+    @include grid-column-breakpoint("xsmall", 12, 12,false);
     @include grid-column-breakpoint("small", 12, 12,false);
-    @include grid-column-breakpoint("medium", 12, 12,false);
+    @include grid-column-breakpoint("medium", 10, 12,false);
+    @include grid-column-breakpoint("large", 10, 12,false);
     @include grid-column-breakpoint("xlarge", 10, 12,false);
-    @include grid-column-breakpoint("xxlarge", 10, 12,false);
     padding-bottom: 100px;
     border-left: 1px solid color("silver",10%);
     background: #fff;
@@ -55,10 +56,11 @@ a {
 //------------------------------------------------------
 .docs-sidebar {
     @include grid-column(3,16,false);
+    @include grid-breakpoint-hide("xsmall");
     @include grid-breakpoint-hide("small");
-    @include grid-breakpoint-hide("medium");
+    @include grid-column-breakpoint("medium", 2, 12,false);
+    @include grid-column-breakpoint("large", 2, 12,false);
     @include grid-column-breakpoint("xlarge", 2, 12,false);
-    @include grid-column-breakpoint("xxlarge", 2, 12,false);
     padding-bottom: $grid-gutter / 2;
     height: 100%;
     overflow: auto;
@@ -120,7 +122,7 @@ a {
                 list-style: none;
                 .item {
                     .link {
-                        color: color("dark",25%);
+                        color: color("gray",35%);
                         padding-left: $grid-gutter / 4;
                         font-size: 14px;
                         padding: 2px 0;
@@ -164,14 +166,14 @@ a {
                 font-size: 15px;
                 margin-left: 10px;
                 font-weight: 600;
-                color: color("ocean",40%);
+                color: color("ocean",20%);
             }
         }
         .version {
             @include grid-column(4, 12);
             display: block;
             text-align: right;
-            color: color("ocean",40%);
+            color: color("ocean",20%);
             margin-top: 20px;
             font-size: 12px;
             font-weight: 600;
@@ -196,12 +198,10 @@ a {
 //------------------------------------------------------
 .docs-navbar {
     display: block;
-    background-color: #f8f9fb;
     color: #a4d6e5;
-
-    // border-bottom: 1px solid #e4e8eb;
     width: 100%;
     background-color: color("ocean");
+
     .container {
         @include grid-row(false);
         .menu {
@@ -212,6 +212,7 @@ a {
                 .item {
                     float: left;
                     .link {
+                        display: block;
                         color: color("ocean",20%);
                         cursor: pointer;
                         padding: 10px 20px 10px 0;
@@ -314,7 +315,7 @@ pre.box-code {
         // padding: 10px;
         background: #fff;
         color: #606c78;
-        @include grid-breakpoint("small") {
+        @include grid-breakpoint("xsmall") {
             font-size: 11px;
         };
         span {
@@ -334,11 +335,8 @@ pre.box-code {
         font-size: inherit;
     }
     .command-name {
-
-        // font-weight: 600;
         font-size: 16px;
-        padding: 0;
-        margin: 0;
+        margin-bottom:10px;
         .name {
             font-size: inherit;
             color: color("gray");
@@ -351,6 +349,7 @@ pre.box-code {
     }
     .description {
         color: color("gray",35%);
+        font-size: 13px;
     }
 }
 
@@ -376,7 +375,7 @@ footer {
             font-size: 30px;
             margin-right: 20px;
             color: color("gray");
-            @include grid-breakpoint("small") {
+            @include grid-breakpoint("xsmall") {
                 margin-right: 10px;
             }
         }
@@ -392,7 +391,7 @@ footer {
         margin: 0 20px;
 
         // font-weight: 600;
-        @include grid-breakpoint("small") {
+        @include grid-breakpoint("xsmall") {
             margin: 0 8px;
         }
     }
@@ -424,9 +423,9 @@ footer {
             border-radius: 3px;
             .col {
                 @include grid-column(3,12);
-                @include grid-column-breakpoint("small",12,12);
-                @include grid-column-breakpoint("medium",6,12);
-                @include grid-breakpoint("small", "medium") {
+                @include grid-column-breakpoint("xsmall",12,12);
+                @include grid-column-breakpoint("small",6,12);
+                @include grid-breakpoint("xsmall", "small") {
                     margin-bottom: $grid-gutter/4;
                     margin-top: $grid-gutter/4;
                 }

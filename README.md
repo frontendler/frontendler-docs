@@ -45,11 +45,6 @@ grid-gutter
 ```scss
 $grid-gutter: 40px;
 ```
-grid-gutter-outside
-
-```scss
-grid-gutter-outside: 5px;
-```
 
 grid-breakpoints
 
@@ -65,7 +60,7 @@ $grid-breakpoints:(
 grid-row
 
 ```scss
-@mixin grid-row($gutter: $grid-gutter-outside, $breakpoints: $grid-breakpoints)
+@mixin grid-row()
 ```
 
 grid-col

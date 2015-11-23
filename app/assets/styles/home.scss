@@ -1,7 +1,7 @@
 //------------------------------------------------------
 // IMPORTS
 //------------------------------------------------------
-@import "frontendler-sass/frontendler";
+@import "frontendler";
 @import "home/settings";
 @import "home/animations";
 
@@ -10,24 +10,6 @@
 //------------------------------------------------------
 @include reset();
 
-//------------------------------------------------------
-//ANIMATIONS
-//------------------------------------------------------
-
-@keyframes header-fade-in (){
-    0%{
-        opacity:0;
-        transform: scale(1,1);
-    }
-    50%{
-        opacity:0.7;
-    }
-
-    100%{
-        opacity:0;
-        transform: scale(1.3,1.3);
-    }
-}
 
 //------------------------------------------------------
 //GLOBAL
@@ -44,70 +26,22 @@ p{
 //------------------------------------------------------
 //HEADER
 //------------------------------------------------------
-.no-canvas {
-    header {
-        background: color("dark");
-    }
-}
-.canvas {
-    header {
-        animation: showcanvas 3s;
-        animation-fill-mode: forwards;
-        animation-delay: 1s;
-    }
-}
 header {
     @extend %clearfix;
     position: relative;
     background: color("dark");
     position: relative;
-    overflow: hidden;
-    .pg-canvas {
-        position: absolute;
-        top: 0;
-        left: 0;
-        background: color("dark");
-        z-index: -1;
-        // background-image:url("../images/bg-1.jpg");
-        // background-size: cover;
-    }
     .container {
         @include grid-row;
-        padding-top: 50px;
-        padding-bottom: 50px;
+        padding-top: 80px;
+        padding-bottom: 70px;
     }
-
-    .background{
-        position: absolute;
-        top:0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-repeat: no-repeat;
-        background-size: cover;
-        // z-index: -1;
-
-        &.bg1{
-            background-image:url("../images/bg-1.jpg");
-            animation:header-fade-in 8s infinite 0s both;
-        }
-        &.bg2{
-            background-image:url("../images/bg-2.jpg");
-            animation:header-fade-in 6s infinite 3s both;
-        }
-        &.bg3{
-            background-image:url("../images/bg-3.jpg");
-            animation:header-fade-in 9s infinite 6s both;
-        }
-    }
-
 
     h1,
     h2,
     h3 {
         opacity: 0;
-        animation: headerstart $animation-duration*2;
-        animation-fill-mode: both;
+        animation: headerstart $animation-duration*2 both;
     }
     h1 {
         animation-delay: 0.1s;
@@ -153,21 +87,20 @@ h1 {
         font-size: 15px;
         margin-left: 20px;
         font-weight: normal;
-        @include grid-breakpoint("small") {
+        @include grid-breakpoint("xsmall") {
             display: block;
         }
     }
 }
 h2 {
-    color: #b0c3d4;
+    color: color("sky");
     margin: 10px 0;
 }
 h3 {
-    margin-top: 0;
     margin-bottom: 30px;
-    color: #b0c3d4;
+    color: color("sky");
 }
-@include grid-breakpoint("small", "medium") {
+@include grid-breakpoint("xsmall", "small") {
     h1 {
         font-size: 70px;
         line-height: 40px;
@@ -212,6 +145,24 @@ h3 {
 }
 
 //------------------------------------------------------
+//RELEASES
+//------------------------------------------------------
+.release{
+    background: color("dark",60%);
+
+    .container{
+        @include grid-row();
+        @include grid-column(1,1);
+        padding-top:15px;
+        padding-bottom:15px;
+        color: color("sky");
+        font-size:13px;
+        font-weight: 600;
+        opacity: 0.7;
+    }
+
+}
+//------------------------------------------------------
 //ABOUT
 //------------------------------------------------------
 .about {
@@ -222,14 +173,14 @@ h3 {
     }
     .item {
         @include grid-column(4);
-        @include grid-column-breakpoint("small",12);
-        @include grid-column-breakpoint("medium",6);
+        @include grid-column-breakpoint("xsmall",12);
+        @include grid-column-breakpoint("small",6);
         margin: $grid-gutter 0;
         img {
             width: 80%;
             display: block;
             margin: 0 auto;
-            @include grid-breakpoint("small") {
+            @include grid-breakpoint("xsmall") {
                 width: 80%;
             }
         }
@@ -242,10 +193,10 @@ h3 {
         p {
             height: 80px;
             margin-top: 10px;
-            @include grid-breakpoint("small", "medium", "large") {
+            @include grid-breakpoint("xsmall", "small", "medium") {
                 text-align: center;
             }
-            @include grid-breakpoint("small") {
+            @include grid-breakpoint("xsmall") {
                 height: auto;
             }
         }
@@ -265,7 +216,7 @@ footer {
             font-size: 30px;
             margin-right: 20px;
             color: #fff;
-            @include grid-breakpoint("small") {
+            @include grid-breakpoint("xsmall") {
                 margin-right: 10px;
             }
         }
@@ -281,7 +232,7 @@ footer {
         transition: color $animation-duration;
         margin: 0 20px;
         font-weight: 600;
-        @include grid-breakpoint("small") {
+        @include grid-breakpoint("xsmall") {
             margin: 0 8px;
         }
         &:hover {
