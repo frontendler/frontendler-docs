@@ -44,7 +44,7 @@ var AUTOPREFIXER_BROWSERS = [
 //-------------------------------------------------------------------
 
 gulp.task("styles", function() {
-    gulp.src(app + "/" + styles + "/**/*.scss")
+    return gulp.src(app + "/" + styles + "/**/*.scss")
         .pipe(plugins.plumber())
         .pipe(plugins.sourcemaps.init())
         .pipe(plugins.sass({
