@@ -62,7 +62,9 @@ header {
         opacity: 0;
         animation: headerbuttonstart $animation-duration*2;
         animation-fill-mode: both;
-
+        strong{
+            font-weight: bold;
+        }
     }
     .documentation {
         animation-delay: 1.5s;
