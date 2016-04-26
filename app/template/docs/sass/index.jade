@@ -20,13 +20,13 @@ block content
 					+command-description().
 						Frontendler has a settings file with default values:
 					+command-code("scss").
-						//-----------------------------------------------------------
+						
 						//FONT
 						//-----------------------------------------------------------
 						$font-family: "Open Sans", "Helvetica", sans-serif !default;
 						$font-size: 14px !default;
 
-						//-----------------------------------------------------------
+
 						//ANIMATION
 						//-----------------------------------------------------------
 						$animation-duration: 0.25s !default;
@@ -51,7 +51,7 @@ block content
 							"alert"
 						) !default;
 
-						//-----------------------------------------------------------
+
 						//GRID
 						//-----------------------------------------------------------
 						$grid-gutter: 40px !default;
@@ -63,7 +63,7 @@ block content
 						    "xlarge": 1600px min 1601px
 						)!default;
 
-						//-----------------------------------------------------------
+
 						//COLOR
 						//-----------------------------------------------------------
 						$colors:(
@@ -82,29 +82,40 @@ block content
 
 
 					+command-description().
-						But you can customize these in your own settings file or other sass file like this:
+						But you can customize these in your own settings file like this:
 					+command-code("scss").
+						
+						// your settings.scss
 						//-----------------------------------------------------------
-						//FONT
+												
+						// FONT
 						//-----------------------------------------------------------
 						$font-family: "Arial";
-						$font-size: 15px;	
+						$font-size: 13px;	
 						
-						//-----------------------------------------------------------
-						//COLOR
+						// GRID
+						//-----------------------------------------------------------	
+						$grid-breakpoints:(
+							"phone": 100% max 600px,
+							"tablet":  100% min 601px max 1280px,
+							"desktop": 100% min 1281px
+						)!default;
+						
+						// COLOR
 						//-----------------------------------------------------------
 						$colors:(
 							"background":    #0075d3,
 							"text":    #1c2731
 						);
 						
-						//-----------------------------------------------------------
-						//ANIMATION
+						// ANIMATION
 						//-----------------------------------------------------------
 						$animation-keyframes:(
 							"fade-in",
 							"fade-out",
 						);
+						
+						
 			div.container
 				+command-block()
 					+command-name("Reset","reset")
@@ -139,12 +150,12 @@ block content
 					$grid-gutter: 40px;
 				+command("grid-breakpoints","scss","grid-breakpoints").
 					$grid-breakpoints:(
-					    "small":   100% max 640px,
-					    "medium":  100% min 641px max 1024px,
-					    "large":   1024px min 1025px max 1440px,
-					    "xlarge":  1440px min 1441px max 1920px,
-					    "xxlarge": 1920px min 1921px
-					) !default;
+						"xsmall": 100% max 600px,
+						"small":  100% min 601px max 960px,
+						"medium": 100% min 961px max 1280px,
+						"large":  1280px min 1281px max 1600px,
+						"xlarge": 1600px min 1601px
+					)!default;
 				+command("grid-row","scss","grid-row").
 					@include grid-row();
 				+command("grid-column","scss","grid-column").
@@ -155,18 +166,8 @@ block content
 					@include grid-column-breakpoint($breakpoint, $column, $columns: 12, $gutter: false){
 						...
 					};
-				+command("grid-column-breakpoint-custom","scss","grid-column-breakpoint-custom").
-					@include grid-column-breakpoint-custom($min-width, $max-width, $column, $columns: 12, $gutter: false)
-					or
-					@include grid-column-breakpoint-custom($min-width, $max-width, $column, $columns: 12, $gutter: false){
-						...
-					};
 				+command("grid-breakpoint","scss","grid-breakpoint").
 					@include grid-breakpoint($breakpoints...){
-						...
-					};
-				+command("grid-breakpoint-custom","scss","grid-breakpoint-custom").
-					@include grid-breakpoint-custom($min-width, $max-width){
 						...
 					};
 				+command("grid-breakpoint-hide","scss","grid-breakpoint-hide").
@@ -195,6 +196,12 @@ block content
 		article.animation
 			+title("Animation")
 			div.container
+				+command-block()
+					+command-name("Animations","animations")
+					+command-description().
+						Import css animations keyframes.
+					+command-code("scss")
+						|@include animations;
 				+command("animation-duration","scss","animation-duration").
 					$animation-duration: 0.25s !default;
 				+command("animation-time-functions","scss","animation-time-functions").

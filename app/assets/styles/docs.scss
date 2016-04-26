@@ -307,7 +307,7 @@ code {
 pre.box-code {
     border: 1px solid #ddd;
     border-radius: 5px;
-    padding: 10px;
+    padding: 10px 20px;
     code {
 
         // width: 100%;
@@ -335,12 +335,13 @@ pre.box-code {
 //------------------------------------------------------
 .command-block {
     @include grid-column(12);
+    margin-bottom: 40px;
     a {
         color: color("ocean");
         font-size: inherit;
     }
     .command-name {
-        font-size: 16px;
+        font-size: 18px;
         margin-bottom:10px;
         .name {
             font-size: inherit;

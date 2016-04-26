@@ -15,6 +15,10 @@ $(document).ready(function() {
         });
     });
 
+
+    // ---------------------------------------------------------------
+    // BANNER
+
     // $('header').particleground({
     //     lineColor:'#2c475f',
     //     dotColor:'#305b82',
@@ -35,6 +39,8 @@ $(document).ready(function() {
     //     var a = $(this).closest('.select').find('.select-btn');
     //     a.find('span.text').html($(this).find(':selected').text());
     // });
+
+    // ---------------------------------------------------------------
 
 
     //note
